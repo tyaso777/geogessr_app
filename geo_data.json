@@ -1,0 +1,45 @@
+{
+    "Japan": {
+      "flag": {
+        "emoji": "🇯🇵",
+        "description": "A white field with a red circle in the center, symbolizing the sun.",
+        "image_url": "https://flagcdn.com/w320/jp.png"
+      },
+      "language": ["Japanese"],
+      "tld": ".jp",
+      "latlng": [36.2048, 138.2529],
+      "landmark": {
+        "name": "Mount Fuji",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Mount_Fuji_and_Lake_Kawaguchi.jpg"
+      }
+    },
+    "Peru": {
+      "flag": {
+        "emoji": "🇵🇪",
+        "description": "Vertical triband of red and white with a coat of arms in the center.",
+        "image_url": "https://flagcdn.com/w320/pe.png"
+      },
+      "language": ["Spanish"],
+      "tld": ".pe",
+      "latlng": [-9.19, -75.0152],
+      "landmark": {
+        "name": "Machu Picchu",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg"
+      }
+    },
+    "American Samoa": {
+        "flag": {
+          "emoji": "🇦🇸",
+          "description": "A red-edged white triangle pointing towards the hoist with a bald eagle clutching a war club and fly-whisk.",
+          "image_url": "https://flagcdn.com/w320/as.png"
+        },
+        "language": ["Samoan", "English"],
+        "tld": ".as",
+        "latlng": [-14.271, -170.132],
+        "landmark": {
+          "name": "National Park of American Samoa",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Tutuila-Island.jpg/640px-Tutuila-Island.jpg"
+        }
+    }
+}
+  
