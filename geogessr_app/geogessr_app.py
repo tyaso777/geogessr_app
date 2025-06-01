@@ -1,7 +1,6 @@
-import json
-
 import folium
 import streamlit as st
+import yaml
 from config.field_config import CHAR_TO_LANGUAGES, FILTERABLE_FIELDS, field_options
 from folium import DivIcon
 from streamlit_folium import st_folium
@@ -12,8 +11,8 @@ st.title("🗺️ Country Info Map with Dynamic Filters and Responsive Map")
 
 @st.cache_data
 def load_data() -> dict:
-    with open("geo_data.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+    with open("geo_data.yaml", "r", encoding="utf-8") as f:
+        return yaml.safe_load(f)
 
 
 # ネストキーの取得
