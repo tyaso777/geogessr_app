@@ -393,13 +393,13 @@ for country, info in data.items():
         html = f"""
         <div style="text-align: center; font-size: 10px;">
             <img src="{icon_url}" style="width: 40px; height: auto; display: block; margin: 0 auto;" />
-            {f'<div style="display: inline-block; background: {bg_color}; padding: 1px 4px; border-radius: 4px; max-width: 200px; word-wrap: break-word; border: 1px solid #ddd;">{label}</div>' if label else ""}
+            {f'<div style="display: inline-block; background: {bg_color}; padding: 1px 4px; border-radius: 4px; max-width: 200px; word-wrap: break-word; border: 1px solid #666; color: #000;">{label}</div>' if label else ""}
         </div>
         """
     else:
         html = f"""
         <div style="text-align: center; font-size: 10px;">
-            <div style="display: inline-block; background: {bg_color}; padding: 2px 6px; border-radius: 4px; max-width: 200px; word-wrap: break-word; line-height: 1.2; border: 1px solid #ddd;">
+            <div style="display: inline-block; background: {bg_color}; padding: 2px 6px; border-radius: 4px; max-width: 200px; word-wrap: break-word; line-height: 1.2; border: 1px solid #666; color: #000;">
                 {label}
             </div>
         </div>
@@ -462,12 +462,12 @@ for country, info in data.items():
 
     popup_content = format_data_for_popup(country, info)
     popup_html = f"""
-    <div style="width: 300px; text-align: left; max-height: 400px; overflow-y: auto;">
-        <div style="text-align: center; margin-bottom: 10px;">
-            <h4>{info['flag']['emoji']} {country}</h4>
+    <div style="width: 300px; text-align: left; max-height: 400px; overflow-y: auto; background: #fff; color: #000; border: 1px solid #666;">
+        <div style="text-align: center; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-bottom: 1px solid #ddd;">
+            <h4 style="margin: 0 0 8px 0; color: #000;">{info['flag']['emoji']} {country}</h4>
             <img src="{info['flag']['image_url']}" width="80" />
         </div>
-        <div style="font-size: 12px; line-height: 1.4;">
+        <div style="font-size: 12px; line-height: 1.4; padding: 10px; color: #000;">
             {popup_content}
         </div>
     </div>
