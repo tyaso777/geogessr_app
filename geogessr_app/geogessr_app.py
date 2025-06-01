@@ -414,23 +414,24 @@ def passes_all_filters(info: dict, filters: list[dict]) -> bool:
 if selected_chars:
     st.markdown("### 🧠 Languages Matching Selected Characters")
 
-    # 文字と言語の対応を表示
-    char_lang_info = []
-    for char in selected_chars:
-        langs = CHAR_TO_LANGUAGES.get(char, [])
-        char_lang_info.extend(langs)
+    # 選択された文字すべてを使用する言語を取得（AND演算）
+    matching_langs = get_and_matching_languages(selected_chars, CHAR_TO_LANGUAGES)
 
-    unique_langs = list(set(char_lang_info))
     st.markdown(f"**Selected characters:** {' '.join(selected_chars)}")
-    st.markdown(f"**Matching languages:** {', '.join(unique_langs)}")
+    if matching_langs:
+        st.markdown(
+            f"**Matching languages (uses ALL selected characters):** {', '.join(sorted(matching_langs))}"
+        )
+    else:
+        st.markdown("**No languages use ALL of the selected characters together**")
 
     # 街路表記モードの場合は対応する街路表記をテーブル形式で表示
-    if content_field == "#dynamic_street_terms" and unique_langs:
+    if content_field == "#dynamic_street_terms" and matching_langs:
         st.markdown("#### 🛣️ Street Terms for Selected Languages")
 
         # テーブル形式で見やすく表示
         street_data = []
-        for lang in unique_langs:
+        for lang in matching_langs:
             if lang in LANGUAGE_STREET_TERMS:
                 terms = LANGUAGE_STREET_TERMS[lang]
                 # 全ての街路表記を表示
