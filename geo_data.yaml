@@ -3,6 +3,9 @@ _display_options:
     flag.description: true
     language: true
     tld: true
+    crosswalk_stripes: true
+    sign_back: true
+
 Andorra:
   flag:
     emoji: 🇦🇩
@@ -321,6 +324,7 @@ Russia:
   latlng:
   - 61.524
   - 105.3188
+  crosswalk_stripes: 3
 Serbia:
   flag:
     emoji: 🇷🇸
@@ -368,6 +372,7 @@ Ukraine:
   latlng:
   - 48.3794
   - 31.1656
+  crosswalk_stripes: 3
 Denmark:
   flag:
     emoji: 🇩🇰
@@ -466,6 +471,7 @@ Estonia:
   latlng:
   - 59.0
   - 26.0
+  crosswalk_stripes: 3
 Latvia:
   flag:
     emoji: 🇱🇻
@@ -488,6 +494,7 @@ Lithuania:
   latlng:
   - 55.0
   - 24.0
+  crosswalk_stripes: 3
 Argentina:
   flag:
     emoji: 🇦🇷
@@ -599,6 +606,7 @@ Ecuador:
   latlng:
   - -2.0
   - -77.5
+  sign_back: blue back (rare)
 Guatemala:
   flag:
     emoji: 🇬🇹
@@ -807,6 +815,7 @@ Laos:
   latlng:
   - 18.0
   - 105.0
+  sign_back: blue metal back
 Malaysia:
   flag:
     emoji: 🇲🇾
@@ -944,6 +953,7 @@ Kazakhstan:
   latlng:
   - 48.0
   - 68.0
+  crosswalk_stripes: 3
 Kyrgyzstan:
   flag:
     emoji: 🇰🇬
@@ -957,6 +967,7 @@ Kyrgyzstan:
   latlng:
   - 41.0
   - 75.0
+  crosswalk_stripes: 3
 Mongolia:
   flag:
     emoji: 🇲🇳
@@ -969,6 +980,7 @@ Mongolia:
   latlng:
   - 46.0
   - 105.0
+  crosswalk_stripes: 3
 South Korea:
   flag:
     emoji: 🇰🇷
@@ -1159,6 +1171,7 @@ Nigeria:
   latlng:
   - 10.0
   - 8.0
+  sign_back: blue wooden back
 Réunion:
   flag:
     emoji: 🇷🇪

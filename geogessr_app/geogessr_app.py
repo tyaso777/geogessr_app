@@ -18,8 +18,13 @@ def load_data() -> dict:
 # ネストキーの取得
 def get_nested_value(obj: dict, dotted_key: str):
     try:
+        if not isinstance(dotted_key, str):
+            return dotted_key
         for key in dotted_key.split("."):
-            obj = obj[key]
+            if isinstance(obj, dict) and key in obj:
+                obj = obj[key]
+            else:
+                return None
         return obj
     except Exception:
         return None
@@ -49,10 +54,10 @@ data = {k: v for k, v in data.items() if not k.startswith("_")}
 # ▼ 表示観点（サイドバー）
 st.sidebar.write("### 🎯 Display Field")
 selected_view = st.sidebar.radio(
-    "",
+    "Display Field",  # ← 実際には非表示になる
     list(field_options.keys()),
     index=list(field_options.keys()).index("Flag (image only)"),
-    label_visibility="collapsed",
+    label_visibility="collapsed",  # ← これが効いているので見た目には出ない
 )
 icon_key, label_key = field_options[selected_view]
 

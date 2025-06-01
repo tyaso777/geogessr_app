@@ -6,6 +6,8 @@ field_options = {
     "Flag": ("flag.image_url", "flag.description"),
     "Language (text only)": ("#noimage", "language"),
     "Top-level Domain (text only)": ("#noimage", "tld"),
+    "Crosswalk Stripes (text only)": ("#noimage", "crosswalk_stripes"),
+    "Sign Back (text only)": ("#noimage", "sign_back"),
 }
 
 
@@ -14,6 +16,8 @@ FILTERABLE_FIELDS = {
     "language": ("list", "Languages spoken"),
     "tld": ("string", "Top-level domain"),
     "flag.description": ("string", "Flag description"),
+    "crosswalk_stripes": ("number", "Number of crosswalk stripes"),
+    "sign_back": ("string", "Sign back description"),
 }
 
 CHAR_TO_LANGUAGES = {
