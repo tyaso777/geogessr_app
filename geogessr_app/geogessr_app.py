@@ -50,7 +50,10 @@ data = {k: v for k, v in data.items() if not k.startswith("_")}
 # ▼ 表示観点（サイドバー）
 st.sidebar.write("### 🎯 Display Field")
 selected_view = st.sidebar.radio(
-    "", list(field_options.keys()), label_visibility="collapsed"
+    "",
+    list(field_options.keys()),
+    index=list(field_options.keys()).index("Flag (image only)"),
+    label_visibility="collapsed",
 )
 icon_key, label_key = field_options[selected_view]
 
@@ -74,8 +77,22 @@ st.sidebar.write("### 🔤 Character-based Language Filter")
 char_states = {}
 char_cols = st.sidebar.columns(5)
 for idx, char in enumerate(sort_characters_by_base(CHAR_TO_LANGUAGES)):
+    lang_count = len(CHAR_TO_LANGUAGES[char])
+    if lang_count == 1:
+        color = "#ff4d4d"  # vivid red (very specific)
+    elif lang_count == 2:
+        color = "#ffa500"  # strong orange
+    elif lang_count == 3:
+        color = "#f4e04d"  # bright yellow
+    else:
+        color = "#c6f7c3"  # soft green (less specific)
     with char_cols[idx % 5]:
+        st.markdown(
+            f"<div style='background-color:{color}; padding:3px; border-radius:5px;'>",
+            unsafe_allow_html=True,
+        )
         char_states[char] = st.checkbox(char, key=f"char_{char}")
+        st.markdown("</div>", unsafe_allow_html=True)
 
 selected_chars = [c for c, v in char_states.items() if v]
 
@@ -152,6 +169,13 @@ def passes_all_filters(info: dict, filters: list[dict]) -> bool:
 def should_display_label(label_key: str) -> bool:
     return label_key != "#notext"
 
+
+# ▼ チェックされた文字に対応する言語を表示
+if selected_chars:
+    st.markdown("### 🧠 Languages Matching Selected Characters")
+    for char in selected_chars:
+        langs = CHAR_TO_LANGUAGES.get(char, [])
+        st.markdown(f"**{char}** → {', '.join(langs)}")
 
 # 地図の作成
 m = folium.Map(location=[0, 0], zoom_start=2)
