@@ -10,6 +10,7 @@ Andorra:
   latlng:
   - 42.5462
   - 1.6016
+  crosswalk_stripes: 8
 Austria:
   flag:
     emoji: 🇦🇹
@@ -45,6 +46,8 @@ France:
   latlng:
   - 46.2276
   - 2.2137
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Germany:
   flag:
     emoji: 🇩🇪
@@ -56,6 +59,8 @@ Germany:
   latlng:
   - 51.1657
   - 10.4515
+  crosswalk_stripes: 5
+  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
 Greece:
   flag:
     emoji: 🇬🇷
@@ -104,6 +109,21 @@ Italy:
   latlng:
   - 41.8719
   - 12.5674
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
+San Marino:
+  flag:
+    emoji: 🇸🇲
+    description: A horizontal bicolor of white and light blue with the national coat of arms in the center.
+    image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/sm.svg
+  language:
+    - Italian
+  tld: .sm
+  latlng:
+    - 43.9333
+    - 12.4500
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Luxembourg:
   flag:
     emoji: 🇱🇺
@@ -117,6 +137,8 @@ Luxembourg:
   latlng:
   - 49.8153
   - 6.1296
+  crosswalk_stripes: 5
+  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
 Malta:
   flag:
     emoji: 🇲🇹
@@ -130,6 +152,8 @@ Malta:
   latlng:
   - 35.9375
   - 14.3754
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Monaco:
   flag:
     emoji: 🇲🇨
@@ -141,6 +165,8 @@ Monaco:
   latlng:
   - 43.7384
   - 7.4246
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Netherlands:
   flag:
     emoji: 🇳🇱
@@ -153,6 +179,8 @@ Netherlands:
   - 52.1326
   - 5.2913
   sign_back: red or blue frame on back; mostly red, occasionally blue or colorless
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Portugal:
   flag:
     emoji: 🇵🇹
@@ -165,6 +193,8 @@ Portugal:
   latlng:
   - 39.3999
   - -8.2245
+  crosswalk_stripes: 5
+  crosswalk_features: "pedestrian symbol with white horizontal line (belt) positioned higher than other countries"
 Spain:
   flag:
     emoji: 🇪🇸
@@ -177,6 +207,7 @@ Spain:
   latlng:
   - 40.4637
   - -3.7492
+  crosswalk_stripes: 8 or 12
 Switzerland:
   flag:
     emoji: 🇨🇭
@@ -191,6 +222,20 @@ Switzerland:
   latlng:
   - 46.8182
   - 8.2275
+  crosswalk_stripes: 7
+  crosswalk_features: rectangular signal display
+Liechtenstein:
+  flag:
+    emoji: 🇱🇮
+    description: A horizontal bicolor of blue and red with a gold crown on the blue band.
+    image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/li.svg
+  language:
+    - German
+  tld: .li
+  latlng:
+    - 47.166
+    - 9.5554
+  crosswalk_stripes: 7
 United Kingdom:
   flag:
     emoji: 🇬🇧
@@ -214,6 +259,8 @@ Albania:
   latlng:
   - 41.1533
   - 20.1683
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Bulgaria:
   flag:
     emoji: 🇧🇬
@@ -237,6 +284,8 @@ Croatia:
   latlng:
   - 45.1
   - 15.2
+  crosswalk_stripes: 5
+  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
 Czech Republic:
   flag:
     emoji: 🇨🇿
@@ -260,6 +309,8 @@ Hungary:
   latlng:
   - 47.1625
   - 19.5033
+  crosswalk_stripes: 5
+  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
 Montenegro:
   flag:
     emoji: 🇲🇪
@@ -306,6 +357,8 @@ Romania:
   latlng:
   - 45.9432
   - 24.9668
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Russia:
   flag:
     emoji: 🇷🇺
@@ -342,6 +395,8 @@ Slovakia:
   latlng:
   - 48.669
   - 19.699
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Slovenia:
   flag:
     emoji: 🇸🇮
@@ -354,6 +409,8 @@ Slovenia:
   latlng:
   - 46.1512
   - 14.9955
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Ukraine:
   flag:
     emoji: 🇺🇦
@@ -378,6 +435,8 @@ Denmark:
   latlng:
   - 56.0
   - 10.0
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Faroe Islands:
   flag:
     emoji: 🇫🇴
@@ -403,6 +462,8 @@ Finland:
   latlng:
   - 64.0
   - 26.0
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Greenland:
   flag:
     emoji: 🇬🇱
@@ -429,6 +490,8 @@ Iceland:
   latlng:
   - 65.0
   - -18.0
+  crosswalk_stripes: 4 or 6
+  crosswalk_features: "yellow background"
 Norway:
   flag:
     emoji: 🇳🇴
@@ -441,6 +504,7 @@ Norway:
   latlng:
   - 62.0
   - 10.0
+  crosswalk_stripes: 4
 Sweden:
   flag:
     emoji: 🇸🇪
@@ -453,6 +517,7 @@ Sweden:
   latlng:
   - 62.0
   - 15.0
+  crosswalk_stripes: 4
 Estonia:
   flag:
     emoji: 🇪🇪
@@ -476,6 +541,8 @@ Latvia:
   latlng:
   - 57.0
   - 25.0
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 Lithuania:
   flag:
     emoji: 🇱🇹
@@ -772,7 +839,7 @@ Christmas Island:
   - English
   tld: .cx
   latlng:
-  - 10.5
+  - -10.5
   - 105.667
 India:
   flag:
@@ -1116,6 +1183,19 @@ Ghana:
   latlng:
   - 8.0
   - -2.0
+São Tomé and Príncipe:
+  flag:
+    emoji: 🇸🇹
+    description: A horizontal tricolor of green, yellow, and green with two black five-pointed stars on the yellow band and a red triangle at the hoist.
+    image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/st.svg
+  language:
+    - Portuguese
+  tld: .st
+  latlng:
+    - 0.1864
+    - 6.6131
+  crosswalk_stripes: 5
+  crosswalk_features: "pedestrian symbol with white horizontal line (belt) positioned higher than other countries"
 Kenya:
   flag:
     emoji: 🇰🇪
@@ -1312,6 +1392,8 @@ Turkey:
   latlng:
   - 39.0
   - 35.0
+  crosswalk_stripes: 5
+  crosswalk_features: "standard European pedestrian symbol (no belt)"
 United Arab Emirates:
   flag:
     emoji: 🇦🇪

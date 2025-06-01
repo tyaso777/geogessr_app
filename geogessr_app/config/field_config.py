@@ -5,8 +5,10 @@ field_options = {
     "Flag (image only)": ("flag.image_url", "#country"),
     "Flag": ("flag.image_url", "flag.description"),
     "Language (text only)": ("#noimage", "language"),
+    "Street Terms (text only)": ("#noimage", "#dynamic_street_terms"),
     "Top-level Domain (text only)": ("#noimage", "tld"),
     "Crosswalk Stripes (text only)": ("#noimage", "crosswalk_stripes"),
+    "Crosswalk Features (text only)": ("#noimage", "crosswalk_features"),
     "Sign Back (text only)": ("#noimage", "sign_back"),
     "Camera (text only)": ("#noimage", "camera"),
 }
@@ -15,9 +17,11 @@ field_options = {
 # フィルター対象の定義（型・説明）
 FILTERABLE_FIELDS = {
     "language": ("list", "Languages spoken"),
+    "#dynamic_street_terms": ("string", "Street terms"),
     "tld": ("string", "Top-level domain"),
     "flag.description": ("string", "Flag description"),
     "crosswalk_stripes": ("number", "Number of crosswalk stripes"),
+    "crosswalk_features": ("string", "Crosswalk features description"),
     "sign_back": ("string", "Sign back description"),
     "camera": ("string", "Camera description"),
 }
@@ -26,8 +30,10 @@ DISPLAY_OPTIONS = {
     "prepend_country_name": {
         "flag.description": True,
         "language": True,
+        "#dynamic_street_terms": True,
         "tld": True,
         "crosswalk_stripes": True,
+        "crosswalk_features": True,
         "sign_back": True,
         "frame_color_back": True,
         "camera": True,
