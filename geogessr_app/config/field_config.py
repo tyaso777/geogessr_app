@@ -81,4 +81,55 @@ CHAR_TO_LANGUAGES = {
     "и": ["Russian", "Ukrainian", "Bulgarian"],
     "ї": ["Ukrainian"],
     "є": ["Ukrainian"],
+    "ї": ["Ukrainian"],
+    "ы": ["Russian"],
+    "ь": ["Russian", "Ukrainian", "Bulgarian"],
+    # ギリシャ語
+    "θ": ["Greek"],
+    "ψ": ["Greek"],
+    "Ω": ["Greek"],
+    # アラビア文字圏
+    "ء": ["Arabic"],
+    "خ": ["Arabic", "Urdu"],
+    "غ": ["Arabic"],
+    "چ": ["Persian", "Urdu"],
+    "ں": ["Urdu"],
+    # ヘブライ語
+    "ש": ["Hebrew"],
+    "צ": ["Hebrew"],
+    # デーヴァナーガリー（ヒンディー語など）
+    "क": ["Hindi"],
+    "श": ["Hindi"],
+    "म": ["Hindi"],
+    # ベンガル語
+    "ত": ["Bengali"],
+    "ন": ["Bengali"],
+    "আ": ["Bengali"],
+    # シンハラ語
+    "අ": ["Sinhala"],
+    "ද": ["Sinhala"],
+    "ම": ["Sinhala"],
+    # タミル語
+    "அ": ["Tamil"],
+    "ழ": ["Tamil"],
+    "ப": ["Tamil"],
+    # ゾンカ語（チベット文字）
+    "བ": ["Dzongkha"],
+    "ཀ": ["Dzongkha"],
+    "ང": ["Dzongkha"],
+    # ラオス語
+    "ກ": ["Lao"],
+    "ໄ": ["Lao"],
+    "ເ": ["Lao"],
+    "ຣ": ["Lao"],
+    # タイ語
+    "ก": ["Thai"],
+    "ข": ["Thai"],
+    "ฉ": ["Thai"],
+    "เ": ["Thai"],
+    "ไ": ["Thai"],
+    # マレー語（ラテン文字）
+    "ə": ["Malay"],
+    "ʼ": ["Malay"],
+    "ʔ": ["Malay"],
 }

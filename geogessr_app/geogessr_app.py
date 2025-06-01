@@ -88,10 +88,10 @@ for idx, char in enumerate(sort_characters_by_base(CHAR_TO_LANGUAGES)):
         color = "#c6f7c3"  # soft green (less specific)
     with char_cols[idx % 5]:
         st.markdown(
-            f"<div style='background-color:{color}; padding:3px; border-radius:5px;'>",
+            f"<div style='background-color:{color}; padding:3px; border-radius:5px; text-align: center;'>",
             unsafe_allow_html=True,
         )
-        char_states[char] = st.checkbox(char, key=f"char_{char}")
+        char_states[char] = st.checkbox(char, key=f"char_{char}_checkbox")
         st.markdown("</div>", unsafe_allow_html=True)
 
 selected_chars = [c for c, v in char_states.items() if v]
