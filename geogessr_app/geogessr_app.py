@@ -16,7 +16,36 @@ def load_data() -> dict:
         return json.load(f)
 
 
+# ネストキーの取得
+def get_nested_value(obj: dict, dotted_key: str):
+    try:
+        for key in dotted_key.split("."):
+            obj = obj[key]
+        return obj
+    except Exception:
+        return None
+
+
+def get_display_label(
+    country: str, info: dict, field_path: str, display_config: dict
+) -> str:
+    if field_path == "#country":
+        return country
+    if field_path == "#notext":
+        return ""
+    value = get_nested_value(info, field_path)
+    if isinstance(value, list):
+        value = ", ".join(value)
+    elif not isinstance(value, str):
+        value = str(value)
+    if display_config.get(field_path, False):
+        return f"{country}: {value}"
+    return value
+
+
 data = load_data()
+display_config = data.get("_display_options", {}).get("prepend_country_name", {})
+data = {k: v for k, v in data.items() if not k.startswith("_")}
 
 # 表示観点（サイドバー）
 selected_view = st.sidebar.radio("Display Field", list(field_options.keys()))
@@ -49,16 +78,6 @@ with st.expander("Filters", expanded=True):
                 st.rerun()
 
 
-# ネストキーの取得
-def get_nested_value(obj: dict, dotted_key: str):
-    try:
-        for key in dotted_key.split("."):
-            obj = obj[key]
-        return obj
-    except Exception:
-        return None
-
-
 # フィルター判定
 def passes_all_filters(info: dict, filters: list[dict]) -> bool:
     for f in filters:
@@ -83,6 +102,11 @@ def passes_all_filters(info: dict, filters: list[dict]) -> bool:
     return True
 
 
+# 判定：ラベルを表示するか
+def should_display_label(label_key: str) -> bool:
+    return label_key != "#notext"
+
+
 # 地図の作成
 m = folium.Map(location=[0, 0], zoom_start=2)
 
@@ -91,21 +115,19 @@ for country, info in data.items():
         continue
 
     icon_url = get_nested_value(info, icon_key) if icon_key != "#noimage" else None
-    label = get_nested_value(info, label_key) or country
+    label = get_display_label(country, info, label_key, display_config)
 
     if icon_url:
         html = f"""
         <div style="text-align: center; font-size: 10px;">
             <img src="{icon_url}" style="width: 40px; height: auto; display: block; margin: 0 auto;" />
-            <div style="white-space: nowrap; background: white; padding: 1px 4px; border-radius: 4px; max-width: 100px;">
-                {label}
-            </div>
+            {f'<div style="display: inline-block; background: white; padding: 1px 4px; border-radius: 4px;">{label}</div>' if label else ""}
         </div>
         """
     else:
         html = f"""
         <div style="text-align: center; font-size: 10px;">
-            <div style="white-space: nowrap; background: white; padding: 1px 4px; border-radius: 4px; max-width: 100px;">
+            <div style="display: inline-block; background: white; padding: 1px 4px; border-radius: 4px;">
                 {label}
             </div>
         </div>
