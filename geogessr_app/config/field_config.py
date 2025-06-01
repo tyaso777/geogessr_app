@@ -3,7 +3,7 @@
 # 表示用のフィールド（コンテンツのみ）
 field_options = {
     "Top-level Domain": "tld",
-    "Number Plate": "number_plate",
+    "Number Plate (Visual; Front, Rear)": "#number_plate_visual",
     "Language": "language",
     "Street Terms": "#dynamic_street_terms",
     "Crosswalk Stripes": "crosswalk_stripes",

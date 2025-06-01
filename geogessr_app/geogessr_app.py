@@ -12,6 +12,7 @@ from config.field_config import (
     field_options,
     icon_options,
 )
+from config.number_plate_config import has_number_plate_config
 from config.street_config import LANGUAGE_STREET_TERMS
 from folium import DivIcon
 from streamlit_folium import st_folium
@@ -159,8 +160,11 @@ def get_legend_info(field_path: str, percentiles: dict) -> list:
 
 def get_display_content(country: str, info: dict, field_path: str) -> str:
     """表示用コンテンツを取得"""
+    # 国名情報をinfoに追加（DataProcessorで使用）
+    info_with_country = {**info, "_country_name": country}
+
     # DataProcessorを使用して動的/静的フィールドを統一的に処理
-    value = DataProcessor.process_field(field_path, info)
+    value = DataProcessor.process_field(field_path, info_with_country)
 
     if isinstance(value, list):
         formatted_value = ", ".join(str(v) for v in value)
@@ -181,8 +185,21 @@ def create_display_html(
     bg_color: str = "white",
 ) -> str:
     """表示用HTMLを生成"""
-    content = get_display_content(country, info, content_field)
 
+    # 特別な表示処理が必要なフィールドかチェック
+    if DataProcessor.is_special_field(content_field):
+        special_html = DataProcessor.create_special_html(
+            country, info, content_field, show_flag, show_country_name, bg_color
+        )
+        if special_html:
+            return special_html
+        else:
+            # 特別処理に失敗した場合はフォールバック
+            content = "No config available"
+    else:
+        content = get_display_content(country, info, content_field)
+
+    # 通常のテキスト表示処理
     # フラグアイコンの準備
     flag_html = ""
     if show_flag:
@@ -434,6 +451,16 @@ if selected_chars:
 # 地図の作成
 m = folium.Map(location=[0, 0], zoom_start=2)
 
+# デバッグ情報を表示
+if content_field == "#number_plate_visual":
+    debug_info = []
+    for country, info in data.items():
+        if has_number_plate_config(info):
+            debug_info.append(country)
+
+    st.write(f"Countries with number plate config: {', '.join(debug_info)}")
+    st.write(f"Total countries with config: {len(debug_info)}")
+
 filtered_count = 0
 for country, info in data.items():
     if selected_chars and not matches_selected_language(info, matching_langs):
@@ -445,6 +472,13 @@ for country, info in data.items():
 
     # 有効な値がない場合（空文字、None、"No ... available"など）はスキップ
     def has_valid_content(content_text, field_key):
+        # 特別フィールドの場合はDataProcessorで判定
+        if DataProcessor.is_special_field(field_key):
+            if field_key == "#number_plate_visual":
+                return has_number_plate_config(info)
+            # 他の特別フィールドもここで処理
+            return False
+
         if not content_text or content_text.strip() == "":
             return False
         if (
