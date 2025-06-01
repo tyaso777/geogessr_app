@@ -1,11 +1,3 @@
-_display_options:
-  prepend_country_name:
-    flag.description: true
-    language: true
-    tld: true
-    crosswalk_stripes: true
-    sign_back: true
-
 Andorra:
   flag:
     emoji: 🇦🇩
@@ -160,6 +152,7 @@ Netherlands:
   latlng:
   - 52.1326
   - 5.2913
+  sign_back: red or blue frame on back; mostly red, occasionally blue or colorless
 Portugal:
   flag:
     emoji: 🇵🇹
@@ -556,6 +549,7 @@ Colombia:
   latlng:
   - 4.0
   - -72.0
+  sign_back: cross-shaped back; mainly seen in Colombia, sometimes referred to as 'Colombian cross'
 Costa Rica:
   flag:
     emoji: 🇨🇷
@@ -581,6 +575,7 @@ Curaçao:
   latlng:
   - 12.2
   - -69.0
+  sign_back: red or blue frame on back; mostly red, occasionally blue or colorless
 Dominican Republic:
   flag:
     emoji: 🇩🇴
@@ -1231,6 +1226,7 @@ South Africa:
   latlng:
   - -29.0
   - 24.0
+  camera: "If image quality is poor in Southern Africa, it's likely South Africa"
 Uganda:
   flag:
     emoji: 🇺🇬

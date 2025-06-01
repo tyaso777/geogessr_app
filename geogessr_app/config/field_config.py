@@ -8,6 +8,7 @@ field_options = {
     "Top-level Domain (text only)": ("#noimage", "tld"),
     "Crosswalk Stripes (text only)": ("#noimage", "crosswalk_stripes"),
     "Sign Back (text only)": ("#noimage", "sign_back"),
+    "Camera (text only)": ("#noimage", "camera"),
 }
 
 
@@ -18,6 +19,19 @@ FILTERABLE_FIELDS = {
     "flag.description": ("string", "Flag description"),
     "crosswalk_stripes": ("number", "Number of crosswalk stripes"),
     "sign_back": ("string", "Sign back description"),
+    "camera": ("string", "Camera description"),
+}
+
+DISPLAY_OPTIONS = {
+    "prepend_country_name": {
+        "flag.description": True,
+        "language": True,
+        "tld": True,
+        "crosswalk_stripes": True,
+        "sign_back": True,
+        "frame_color_back": True,
+        "camera": True,
+    }
 }
 
 CHAR_TO_LANGUAGES = {

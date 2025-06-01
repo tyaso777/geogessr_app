@@ -1,7 +1,14 @@
+# poetry run streamlit run geogessr_app/geogessr_app.py
+
 import folium
 import streamlit as st
 import yaml
-from config.field_config import CHAR_TO_LANGUAGES, FILTERABLE_FIELDS, field_options
+from config.field_config import (
+    CHAR_TO_LANGUAGES,
+    DISPLAY_OPTIONS,
+    FILTERABLE_FIELDS,
+    field_options,
+)
 from folium import DivIcon
 from streamlit_folium import st_folium
 
@@ -47,9 +54,9 @@ def get_display_label(
     return value
 
 
+display_config = DISPLAY_OPTIONS.get("prepend_country_name", {})
+
 data = load_data()
-display_config = data.get("_display_options", {}).get("prepend_country_name", {})
-data = {k: v for k, v in data.items() if not k.startswith("_")}
 
 # ▼ 表示観点（サイドバー）
 st.sidebar.write("### 🎯 Display Field")
@@ -225,12 +232,13 @@ for country, info in data.items():
     for offset in [-360, 0, 360]:
         lon = info["latlng"][1] + offset
         lat = info["latlng"][0]
-        folium.Marker(
-            location=[lat, lon],
-            icon=div_icon,
-            popup=folium.Popup(popup_html, max_width=250),
-            tooltip=country,
-        ).add_to(m)
+        if label and not str(label).strip().lower().endswith("none"):
+            folium.Marker(
+                location=[lat, lon],
+                icon=div_icon,
+                popup=folium.Popup(popup_html, max_width=250),
+                tooltip=country,
+            ).add_to(m)
 
 # ▼ 横幅をブラウザ幅にフィットさせる（最大1500px）
 st_folium(m, width=1500, height=1000)
