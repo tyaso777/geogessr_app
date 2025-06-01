@@ -108,34 +108,51 @@ def parse_numeric_value(value):
 def get_background_color_for_numeric_field(
     field_path: str, value, percentiles: dict = None
 ) -> str:
-    """数値フィールドに応じて背景色を取得（動的分布ベース）"""
+    """数値フィールドに応じて背景色を取得（パーセンタイル順位ベース）"""
     # 元の値を解析
     parsed_value = parse_numeric_value(value)
 
     if parsed_value is None or percentiles is None:
         return "white"
 
-    # パーセンタイルベースの色分け
-    if parsed_value <= percentiles["q25"]:
-        return "#ffe6e6"  # 薄い赤 (下位25%)
-    elif parsed_value <= percentiles["median"]:
-        return "#fff2e6"  # 薄いオレンジ (25-50%)
-    elif parsed_value <= percentiles["q75"]:
-        return "#fffae6"  # 薄い黄色 (50-75%)
+    # パーセンタイル順位を計算（0-100の範囲）
+    values = percentiles["values"]
+    percentile_rank = (np.sum(values < parsed_value) / len(values)) * 100
+
+    # パーセンタイル順位を0-1に正規化
+    normalized = percentile_rank / 100
+
+    # グラデーション色を計算（赤→黄→緑）
+    if normalized < 0.5:
+        # 赤から黄色へのグラデーション
+        ratio = normalized * 2  # 0-1に変換
+        red = 255
+        green = int(255 * ratio)
+        blue = 0
     else:
-        return "#e6f7e6"  # 薄い緑 (上位25%)
+        # 黄色から緑へのグラデーション
+        ratio = (normalized - 0.5) * 2  # 0-1に変換
+        red = int(255 * (1 - ratio))
+        green = 255
+        blue = 0
+
+    # 透明度を調整して見やすくする
+    alpha = 0.4
+    return f"rgba({red}, {green}, {blue}, {alpha})"
 
 
 def get_legend_info(field_path: str, percentiles: dict) -> list:
-    """フィールドと分布に応じた凡例情報を取得"""
+    """フィールドと分布に応じた凡例情報を取得（パーセンタイル順位ベース）"""
     if not percentiles:
         return []
 
+    # パーセンタイル順位ベースの凡例
     return [
-        (f"≤{percentiles['q25']:.1f}", "#ffe6e6", "Lower 25%"),
-        (f"{percentiles['q25']:.1f}-{percentiles['median']:.1f}", "#fff2e6", "25-50%"),
-        (f"{percentiles['median']:.1f}-{percentiles['q75']:.1f}", "#fffae6", "50-75%"),
-        (f"≥{percentiles['q75']:.1f}", "#e6f7e6", "Upper 25%"),
+        ("0-20%", "rgba(255, 0, 0, 0.4)", "Bottom quintile"),
+        ("20-40%", "rgba(255, 128, 0, 0.4)", "Second quintile"),
+        ("40-60%", "rgba(255, 255, 0, 0.4)", "Middle quintile"),
+        ("60-80%", "rgba(128, 255, 0, 0.4)", "Fourth quintile"),
+        ("80-100%", "rgba(0, 255, 0, 0.4)", "Top quintile"),
     ]
 
 
@@ -152,13 +169,15 @@ def get_display_label(
     value = DataProcessor.process_field(field_path, info)
 
     if isinstance(value, list):
-        value = ", ".join(value)
+        formatted_value = ", ".join(str(v) for v in value)
     elif not isinstance(value, str):
-        value = str(value) if value is not None else ""
+        formatted_value = str(value) if value is not None else ""
+    else:
+        formatted_value = value
 
     if display_config.get(field_path, False):
-        return f"{country}: {value}"
-    return value
+        return f"{country}: {formatted_value}"
+    return formatted_value
 
 
 display_config = DISPLAY_OPTIONS.get("prepend_country_name", {})
@@ -192,12 +211,13 @@ if label_key in FILTERABLE_FIELDS and FILTERABLE_FIELDS[label_key][0] == "number
             )
         with stats_col2:
             st.markdown(
-                f"**Range:** {numeric_percentiles['min']:.1f} - {numeric_percentiles['max']:.1f}"
+                f"**Range:** {numeric_percentiles['min']:.0f} - {numeric_percentiles['max']:.0f}"
             )
-            st.markdown(f"**Median:** {numeric_percentiles['median']:.1f}")
+            st.markdown(f"**Median:** {numeric_percentiles['median']:.0f}")
 
-        # 色の凡例
+        # 色の凡例（パーセンタイル順位ベース）
         if legend_items:
+            st.markdown("#### Color Scale (Percentile Ranking)")
             legend_cols = st.columns(len(legend_items))
             for i, (range_text, color, description) in enumerate(legend_items):
                 with legend_cols[i]:
@@ -419,6 +439,7 @@ for country, info in data.items():
         display_names = {
             "language": "Language",
             "tld": "Domain",
+            "gdp_per_capita": "GDP per capita",
             "crosswalk_stripes": "Crosswalk Stripes",
             "crosswalk_features": "Crosswalk Features",
             "sign_back": "Sign Back",

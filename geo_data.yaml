@@ -11,6 +11,7 @@ Andorra:
   - 42.5462
   - 1.6016
   crosswalk_stripes: 8
+  gdp_per_capita: 46296
 Austria:
   flag:
     emoji: 🇦🇹
@@ -22,6 +23,7 @@ Austria:
   latlng:
   - 47.5162
   - 14.5501
+  gdp_per_capita: 56756
 Belgium:
   flag:
     emoji: 🇧🇪
@@ -35,6 +37,7 @@ Belgium:
   latlng:
   - 50.5039
   - 4.4699
+  gdp_per_capita: 55841
 France:
   flag:
     emoji: 🇫🇷
@@ -47,7 +50,8 @@ France:
   - 46.2276
   - 2.2137
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 45311
 Germany:
   flag:
     emoji: 🇩🇪
@@ -60,7 +64,8 @@ Germany:
   - 51.1657
   - 10.4515
   crosswalk_stripes: 5
-  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
+  crosswalk_features: pedestrian symbol with white horizontal line (belt)
+  gdp_per_capita: 54594
 Greece:
   flag:
     emoji: 🇬🇷
@@ -73,6 +78,7 @@ Greece:
   latlng:
   - 39.0742
   - 21.8243
+  gdp_per_capita: 24310
 Ireland:
   flag:
     emoji: 🇮🇪
@@ -85,7 +91,9 @@ Ireland:
   latlng:
   - 53.1424
   - -7.6921
-  crosswalk_features: "yellow background (mainly used in USA, only European country with yellow background is Ireland <and Iceland?>)"
+  crosswalk_features: yellow background (mainly used in USA, only European country
+    with yellow background is Ireland <and Iceland?>)
+  gdp_per_capita: 106305
 Isle of Man:
   flag:
     emoji: 🇮🇲
@@ -99,6 +107,7 @@ Isle of Man:
   latlng:
   - 54.2361
   - -4.5481
+  gdp_per_capita: 94300
 Italy:
   flag:
     emoji: 🇮🇹
@@ -111,20 +120,23 @@ Italy:
   - 41.8719
   - 12.5674
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 39589
 San Marino:
   flag:
     emoji: 🇸🇲
-    description: A horizontal bicolor of white and light blue with the national coat of arms in the center.
+    description: A horizontal bicolor of white and light blue with the national coat
+      of arms in the center.
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/sm.svg
   language:
-    - Italian
+  - Italian
   tld: .sm
   latlng:
-    - 43.9333
-    - 12.4500
+  - 43.9333
+  - 12.45
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 57595
 Luxembourg:
   flag:
     emoji: 🇱🇺
@@ -139,7 +151,8 @@ Luxembourg:
   - 49.8153
   - 6.1296
   crosswalk_stripes: 5
-  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
+  crosswalk_features: pedestrian symbol with white horizontal line (belt)
+  gdp_per_capita: 132852
 Malta:
   flag:
     emoji: 🇲🇹
@@ -154,7 +167,8 @@ Malta:
   - 35.9375
   - 14.3754
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 42602
 Monaco:
   flag:
     emoji: 🇲🇨
@@ -167,7 +181,8 @@ Monaco:
   - 43.7384
   - 7.4246
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 256581
 Netherlands:
   flag:
     emoji: 🇳🇱
@@ -181,7 +196,8 @@ Netherlands:
   - 5.2913
   sign_back: red or blue frame on back; mostly red, occasionally blue or colorless
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 66275
 Portugal:
   flag:
     emoji: 🇵🇹
@@ -195,7 +211,9 @@ Portugal:
   - 39.3999
   - -8.2245
   crosswalk_stripes: 5
-  crosswalk_features: "pedestrian symbol with white horizontal line (belt) positioned higher than other countries"
+  crosswalk_features: pedestrian symbol with white horizontal line (belt) positioned
+    higher than other countries
+  gdp_per_capita: 28350
 Spain:
   flag:
     emoji: 🇪🇸
@@ -209,6 +227,7 @@ Spain:
   - 40.4637
   - -3.7492
   crosswalk_stripes: 8 or 12
+  gdp_per_capita: 34505
 Switzerland:
   flag:
     emoji: 🇨🇭
@@ -225,18 +244,21 @@ Switzerland:
   - 8.2275
   crosswalk_stripes: 7
   crosswalk_features: rectangular signal display
+  gdp_per_capita: 101764
 Liechtenstein:
   flag:
     emoji: 🇱🇮
-    description: A horizontal bicolor of blue and red with a gold crown on the blue band.
+    description: A horizontal bicolor of blue and red with a gold crown on the blue
+      band.
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/li.svg
   language:
-    - German
+  - German
   tld: .li
   latlng:
-    - 47.166
-    - 9.5554
+  - 47.166
+  - 9.5554
   crosswalk_stripes: 7
+  gdp_per_capita: 193775
 United Kingdom:
   flag:
     emoji: 🇬🇧
@@ -249,6 +271,7 @@ United Kingdom:
   latlng:
   - 55.3781
   - -3.436
+  gdp_per_capita: 51212
 Albania:
   flag:
     emoji: 🇦🇱
@@ -261,7 +284,8 @@ Albania:
   - 41.1533
   - 20.1683
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 9091
 Bulgaria:
   flag:
     emoji: 🇧🇬
@@ -273,6 +297,7 @@ Bulgaria:
   latlng:
   - 42.7339
   - 25.4858
+  gdp_per_capita: 16492
 Croatia:
   flag:
     emoji: 🇭🇷
@@ -286,7 +311,8 @@ Croatia:
   - 45.1
   - 15.2
   crosswalk_stripes: 5
-  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
+  crosswalk_features: pedestrian symbol with white horizontal line (belt)
+  gdp_per_capita: 23067
 Czech Republic:
   flag:
     emoji: 🇨🇿
@@ -299,6 +325,7 @@ Czech Republic:
   latlng:
   - 49.8175
   - 15.473
+  gdp_per_capita: 32127
 Hungary:
   flag:
     emoji: 🇭🇺
@@ -311,7 +338,8 @@ Hungary:
   - 47.1625
   - 19.5033
   crosswalk_stripes: 5
-  crosswalk_features: "pedestrian symbol with white horizontal line (belt)"
+  crosswalk_features: pedestrian symbol with white horizontal line (belt)
+  gdp_per_capita: 22968
 Montenegro:
   flag:
     emoji: 🇲🇪
@@ -324,6 +352,7 @@ Montenegro:
   latlng:
   - 42.65
   - 18.917
+  gdp_per_capita: 12538
 North Macedonia:
   flag:
     emoji: 🇲🇰
@@ -336,6 +365,7 @@ North Macedonia:
   latlng:
   - 41.6086
   - 21.7453
+  gdp_per_capita: 9037
 Poland:
   flag:
     emoji: 🇵🇱
@@ -347,6 +377,7 @@ Poland:
   latlng:
   - 52.0
   - 20.0
+  gdp_per_capita: 23246
 Romania:
   flag:
     emoji: 🇷🇴
@@ -359,7 +390,8 @@ Romania:
   - 45.9432
   - 24.9668
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 19391
 Russia:
   flag:
     emoji: 🇷🇺
@@ -372,6 +404,7 @@ Russia:
   - 61.524
   - 105.3188
   crosswalk_stripes: 3
+  gdp_per_capita: 13961
 Serbia:
   flag:
     emoji: 🇷🇸
@@ -384,6 +417,7 @@ Serbia:
   latlng:
   - 44.0165
   - 21.0059
+  gdp_per_capita: 12519
 Slovakia:
   flag:
     emoji: 🇸🇰
@@ -397,7 +431,8 @@ Slovakia:
   - 48.669
   - 19.699
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 25236
 Slovenia:
   flag:
     emoji: 🇸🇮
@@ -411,7 +446,8 @@ Slovenia:
   - 46.1512
   - 14.9955
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 33528
 Ukraine:
   flag:
     emoji: 🇺🇦
@@ -424,6 +460,7 @@ Ukraine:
   - 48.3794
   - 31.1656
   crosswalk_stripes: 3
+  gdp_per_capita: 5356
 Denmark:
   flag:
     emoji: 🇩🇰
@@ -437,7 +474,8 @@ Denmark:
   - 56.0
   - 10.0
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 70621
 Faroe Islands:
   flag:
     emoji: 🇫🇴
@@ -450,6 +488,7 @@ Faroe Islands:
   latlng:
   - 62.0
   - -6.8
+  gdp_per_capita: 71718
 Finland:
   flag:
     emoji: 🇫🇮
@@ -464,7 +503,8 @@ Finland:
   - 64.0
   - 26.0
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 53284
 Greenland:
   flag:
     emoji: 🇬🇱
@@ -479,6 +519,7 @@ Greenland:
   latlng:
   - 72.0
   - -40.0
+  gdp_per_capita: 55745
 Iceland:
   flag:
     emoji: 🇮🇸
@@ -492,7 +533,9 @@ Iceland:
   - 65.0
   - -18.0
   crosswalk_stripes: 4 or 6
-  crosswalk_features: "yellow background (mainly used in USA, only European country with yellow background is Ireland and Iceland)"
+  crosswalk_features: yellow background (mainly used in USA, only European country
+    with yellow background is Ireland and Iceland)
+  gdp_per_capita: 83583
 Norway:
   flag:
     emoji: 🇳🇴
@@ -506,6 +549,7 @@ Norway:
   - 62.0
   - 10.0
   crosswalk_stripes: 4
+  gdp_per_capita: 88517
 Sweden:
   flag:
     emoji: 🇸🇪
@@ -519,6 +563,7 @@ Sweden:
   - 62.0
   - 15.0
   crosswalk_stripes: 4
+  gdp_per_capita: 56352
 Estonia:
   flag:
     emoji: 🇪🇪
@@ -531,6 +576,7 @@ Estonia:
   - 59.0
   - 26.0
   crosswalk_stripes: 3
+  gdp_per_capita: 31031
 Latvia:
   flag:
     emoji: 🇱🇻
@@ -543,7 +589,8 @@ Latvia:
   - 57.0
   - 25.0
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 23107
 Lithuania:
   flag:
     emoji: 🇱🇹
@@ -556,6 +603,7 @@ Lithuania:
   - 55.0
   - 24.0
   crosswalk_stripes: 3
+  gdp_per_capita: 28859
 Argentina:
   flag:
     emoji: 🇦🇷
@@ -568,6 +616,7 @@ Argentina:
   latlng:
   - -34.0
   - -64.0
+  gdp_per_capita: 14246
 Bolivia:
   flag:
     emoji: 🇧🇴
@@ -582,6 +631,7 @@ Bolivia:
   latlng:
   - -17.0
   - -65.0
+  gdp_per_capita: 3966
 Brazil:
   flag:
     emoji: 🇧🇷
@@ -594,6 +644,7 @@ Brazil:
   latlng:
   - -10.0
   - -55.0
+  gdp_per_capita: 10212
 Chile:
   flag:
     emoji: 🇨🇱
@@ -606,6 +657,7 @@ Chile:
   latlng:
   - -30.0
   - -71.0
+  gdp_per_capita: 17050
 Colombia:
   flag:
     emoji: 🇨🇴
@@ -617,7 +669,9 @@ Colombia:
   latlng:
   - 4.0
   - -72.0
-  sign_back: cross-shaped back; mainly seen in Colombia, sometimes referred to as 'Colombian cross'
+  sign_back: cross-shaped back; mainly seen in Colombia, sometimes referred to as
+    'Colombian cross'
+  gdp_per_capita: 7316
 Costa Rica:
   flag:
     emoji: 🇨🇷
@@ -630,6 +684,7 @@ Costa Rica:
   latlng:
   - 10.0
   - -84.0
+  gdp_per_capita: 17660
 Curaçao:
   flag:
     emoji: 🇨🇼
@@ -644,6 +699,7 @@ Curaçao:
   - 12.2
   - -69.0
   sign_back: red or blue frame on back; mostly red, occasionally blue or colorless
+  gdp_per_capita: 19945
 Dominican Republic:
   flag:
     emoji: 🇩🇴
@@ -656,6 +712,7 @@ Dominican Republic:
   latlng:
   - 19.0
   - -70.7
+  gdp_per_capita: 11060
 Ecuador:
   flag:
     emoji: 🇪🇨
@@ -670,6 +727,7 @@ Ecuador:
   - -2.0
   - -77.5
   sign_back: blue back (rare)
+  gdp_per_capita: 6721
 Guatemala:
   flag:
     emoji: 🇬🇹
@@ -682,6 +740,7 @@ Guatemala:
   latlng:
   - 15.5
   - -90.25
+  gdp_per_capita: 6075
 Mexico:
   flag:
     emoji: 🇲🇽
@@ -694,6 +753,7 @@ Mexico:
   latlng:
   - 23.0
   - -102.0
+  gdp_per_capita: 13436
 Panama:
   flag:
     emoji: 🇵🇦
@@ -706,6 +766,7 @@ Panama:
   latlng:
   - 8.5
   - -80.0
+  gdp_per_capita: 19156
 Peru:
   flag:
     emoji: 🇵🇪
@@ -720,6 +781,7 @@ Peru:
   latlng:
   - -9.0
   - -76.0
+  gdp_per_capita: 8209
 Puerto Rico:
   flag:
     emoji: 🇵🇷
@@ -733,6 +795,7 @@ Puerto Rico:
   latlng:
   - 18.25
   - -66.5
+  gdp_per_capita: 37250
 Uruguay:
   flag:
     emoji: 🇺🇾
@@ -745,6 +808,7 @@ Uruguay:
   latlng:
   - -33.0
   - -56.0
+  gdp_per_capita: 22762
 U.S. Virgin Islands:
   flag:
     emoji: 🇻🇮
@@ -757,6 +821,7 @@ U.S. Virgin Islands:
   latlng:
   - 18.35
   - -64.93
+  gdp_per_capita: 44321
 Bermuda:
   flag:
     emoji: 🇧🇲
@@ -769,6 +834,7 @@ Bermuda:
   latlng:
   - 32.5
   - -64.75
+  gdp_per_capita: 125842
 Canada:
   flag:
     emoji: 🇨🇦
@@ -782,6 +848,7 @@ Canada:
   latlng:
   - 56.0
   - -106.0
+  gdp_per_capita: 53835
 United States of America:
   flag:
     emoji: 🇺🇸
@@ -794,7 +861,9 @@ United States of America:
   latlng:
   - 38.0
   - -97.0
-  crosswalk_features: "yellow background (mainly used in USA, only European country with yellow background is Ireland and Iceland)"
+  crosswalk_features: yellow background (mainly used in USA, only European country
+    with yellow background is Ireland and Iceland)
+  gdp_per_capita: 84193
 Bangladesh:
   flag:
     emoji: 🇧🇩
@@ -806,6 +875,7 @@ Bangladesh:
   latlng:
   - 24.0
   - 90.0
+  gdp_per_capita: 2568
 Bhutan:
   flag:
     emoji: 🇧🇹
@@ -818,6 +888,7 @@ Bhutan:
   latlng:
   - 27.5
   - 90.5
+  gdp_per_capita: 3951
 Cambodia:
   flag:
     emoji: 🇰🇭
@@ -830,6 +901,7 @@ Cambodia:
   latlng:
   - 13.0
   - 105.0
+  gdp_per_capita: 2586
 Christmas Island:
   flag:
     emoji: 🇨🇽
@@ -856,6 +928,7 @@ India:
   latlng:
   - 22.0
   - 79.0
+  gdp_per_capita: 2615
 Indonesia:
   flag:
     emoji: 🇮🇩
@@ -867,6 +940,7 @@ Indonesia:
   latlng:
   - 0.0
   - 120.0
+  gdp_per_capita: 4926
 Laos:
   flag:
     emoji: 🇱🇦
@@ -880,6 +954,7 @@ Laos:
   - 18.0
   - 105.0
   sign_back: blue metal back
+  gdp_per_capita: 2040
 Malaysia:
   flag:
     emoji: 🇲🇾
@@ -892,6 +967,7 @@ Malaysia:
   latlng:
   - 2.5
   - 112.5
+  gdp_per_capita: 12393
 Pakistan:
   flag:
     emoji: 🇵🇰
@@ -905,6 +981,7 @@ Pakistan:
   latlng:
   - 30.0
   - 70.0
+  gdp_per_capita: 1386
 Philippines:
   flag:
     emoji: 🇵🇭
@@ -918,6 +995,7 @@ Philippines:
   latlng:
   - 13.0
   - 122.0
+  gdp_per_capita: 3987
 Singapore:
   flag:
     emoji: 🇸🇬
@@ -933,6 +1011,7 @@ Singapore:
   latlng:
   - 1.3667
   - 103.8
+  gdp_per_capita: 88094
 Sri Lanka:
   flag:
     emoji: 🇱🇰
@@ -946,6 +1025,7 @@ Sri Lanka:
   latlng:
   - 7.0
   - 81.0
+  gdp_per_capita: 3942
 Thailand:
   flag:
     emoji: 🇹🇭
@@ -958,6 +1038,7 @@ Thailand:
   latlng:
   - 15.0
   - 100.0
+  gdp_per_capita: 7377
 Vietnam:
   flag:
     emoji: 🇻🇳
@@ -969,6 +1050,7 @@ Vietnam:
   latlng:
   - 16.0
   - 107.0
+  gdp_per_capita: 4457
 China:
   flag:
     emoji: 🇨🇳
@@ -981,6 +1063,7 @@ China:
   latlng:
   - 35.0
   - 103.0
+  gdp_per_capita: 12937
 Hong Kong:
   flag:
     emoji: 🇭🇰
@@ -993,6 +1076,7 @@ Hong Kong:
   latlng:
   - 22.25
   - 114.167
+  gdp_per_capita: 52576
 Japan:
   flag:
     emoji: 🇯🇵
@@ -1004,6 +1088,7 @@ Japan:
   latlng:
   - 36.0
   - 138.0
+  gdp_per_capita: 33843
 Kazakhstan:
   flag:
     emoji: 🇰🇿
@@ -1018,6 +1103,7 @@ Kazakhstan:
   - 48.0
   - 68.0
   crosswalk_stripes: 3
+  gdp_per_capita: 13673
 Kyrgyzstan:
   flag:
     emoji: 🇰🇬
@@ -1032,6 +1118,7 @@ Kyrgyzstan:
   - 41.0
   - 75.0
   crosswalk_stripes: 3
+  gdp_per_capita: 2231
 Mongolia:
   flag:
     emoji: 🇲🇳
@@ -1045,6 +1132,7 @@ Mongolia:
   - 46.0
   - 105.0
   crosswalk_stripes: 3
+  gdp_per_capita: 6277
 South Korea:
   flag:
     emoji: 🇰🇷
@@ -1057,6 +1145,7 @@ South Korea:
   latlng:
   - 37.0
   - 127.5
+  gdp_per_capita: 34434
 Taiwan:
   flag:
     emoji: 🇹🇼
@@ -1069,6 +1158,7 @@ Taiwan:
   latlng:
   - 23.5
   - 121.0
+  gdp_per_capita: 34426
 American Samoa:
   flag:
     emoji: 🇦🇸
@@ -1082,6 +1172,7 @@ American Samoa:
   latlng:
   - -14.271
   - -170.132
+  gdp_per_capita: 18018
 Australia:
   flag:
     emoji: 🇦🇺
@@ -1095,6 +1186,7 @@ Australia:
   latlng:
   - -25.0
   - 133.0
+  gdp_per_capita: 65499
 Guam:
   flag:
     emoji: 🇬🇺
@@ -1108,6 +1200,7 @@ Guam:
   latlng:
   - 13.4443
   - 144.7937
+  gdp_per_capita: 41833
 New Zealand:
   flag:
     emoji: 🇳🇿
@@ -1121,6 +1214,7 @@ New Zealand:
   latlng:
   - -41.0
   - 174.0
+  gdp_per_capita: 47719
 Northern Mariana Islands:
   flag:
     emoji: 🇲🇵
@@ -1135,6 +1229,7 @@ Northern Mariana Islands:
   latlng:
   - 15.2
   - 145.75
+  gdp_per_capita: 23786
 U.S. Minor Outlying Islands:
   flag:
     emoji: 🇺🇲
@@ -1160,6 +1255,7 @@ Botswana:
   latlng:
   - -22.0
   - 24.0
+  gdp_per_capita: 7554
 Eswatini:
   flag:
     emoji: 🇸🇿
@@ -1173,6 +1269,7 @@ Eswatini:
   latlng:
   - -26.5
   - 31.5
+  gdp_per_capita: 3980
 Ghana:
   flag:
     emoji: 🇬🇭
@@ -1185,19 +1282,23 @@ Ghana:
   latlng:
   - 8.0
   - -2.0
+  gdp_per_capita: 2346
 São Tomé and Príncipe:
   flag:
     emoji: 🇸🇹
-    description: A horizontal tricolor of green, yellow, and green with two black five-pointed stars on the yellow band and a red triangle at the hoist.
+    description: A horizontal tricolor of green, yellow, and green with two black
+      five-pointed stars on the yellow band and a red triangle at the hoist.
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/st.svg
   language:
-    - Portuguese
+  - Portuguese
   tld: .st
   latlng:
-    - 0.1864
-    - 6.6131
+  - 0.1864
+  - 6.6131
   crosswalk_stripes: 5
-  crosswalk_features: "pedestrian symbol with white horizontal line (belt) positioned higher than other countries"
+  crosswalk_features: pedestrian symbol with white horizontal line (belt) positioned
+    higher than other countries
+  gdp_per_capita: 3158
 Kenya:
   flag:
     emoji: 🇰🇪
@@ -1211,6 +1312,7 @@ Kenya:
   latlng:
   - 1.0
   - 38.0
+  gdp_per_capita: 2124
 Lesotho:
   flag:
     emoji: 🇱🇸
@@ -1224,6 +1326,7 @@ Lesotho:
   latlng:
   - -29.5
   - 28.5
+  gdp_per_capita: 977
 Madagascar:
   flag:
     emoji: 🇲🇬
@@ -1237,6 +1340,7 @@ Madagascar:
   latlng:
   - -20.0
   - 47.0
+  gdp_per_capita: 566
 Nigeria:
   flag:
     emoji: 🇳🇬
@@ -1249,6 +1353,7 @@ Nigeria:
   - 10.0
   - 8.0
   sign_back: blue wooden back
+  gdp_per_capita: 1350
 Réunion:
   flag:
     emoji: 🇷🇪
@@ -1275,6 +1380,7 @@ Rwanda:
   latlng:
   - -2.0
   - 30.0
+  gdp_per_capita: 1021
 Senegal:
   flag:
     emoji: 🇸🇳
@@ -1287,6 +1393,7 @@ Senegal:
   latlng:
   - 14.0
   - -14.0
+  gdp_per_capita: 1733
 South Africa:
   flag:
     emoji: 🇿🇦
@@ -1308,7 +1415,8 @@ South Africa:
   latlng:
   - -29.0
   - 24.0
-  camera: "If image quality is poor in Southern Africa, it's likely South Africa"
+  camera: If image quality is poor in Southern Africa, it's likely South Africa
+  gdp_per_capita: 6132
 Uganda:
   flag:
     emoji: 🇺🇬
@@ -1322,6 +1430,7 @@ Uganda:
   latlng:
   - 1.5
   - 32.0
+  gdp_per_capita: 1130
 Israel:
   flag:
     emoji: 🇮🇱
@@ -1335,6 +1444,7 @@ Israel:
   latlng:
   - 31.5
   - 34.75
+  gdp_per_capita: 55297
 Jordan:
   flag:
     emoji: 🇯🇴
@@ -1347,6 +1457,7 @@ Jordan:
   latlng:
   - 31.0
   - 36.0
+  gdp_per_capita: 4600
 Palestine:
   flag:
     emoji: 🇵🇸
@@ -1359,6 +1470,7 @@ Palestine:
   latlng:
   - 31.9
   - 35.2
+  gdp_per_capita: 3424
 Qatar:
   flag:
     emoji: 🇶🇦
@@ -1371,6 +1483,7 @@ Qatar:
   latlng:
   - 25.3
   - 51.2
+  gdp_per_capita: 74449
 Tunisia:
   flag:
     emoji: 🇹🇳
@@ -1383,6 +1496,7 @@ Tunisia:
   latlng:
   - 34.0
   - 9.0
+  gdp_per_capita: 4162
 Turkey:
   flag:
     emoji: 🇹🇷
@@ -1395,7 +1509,8 @@ Turkey:
   - 39.0
   - 35.0
   crosswalk_stripes: 5
-  crosswalk_features: "standard European pedestrian symbol"
+  crosswalk_features: standard European pedestrian symbol
+  gdp_per_capita: 14210
 United Arab Emirates:
   flag:
     emoji: 🇦🇪
@@ -1408,3 +1523,4 @@ United Arab Emirates:
   latlng:
   - 24.0
   - 54.0
+  gdp_per_capita: 49549
