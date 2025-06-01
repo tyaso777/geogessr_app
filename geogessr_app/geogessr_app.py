@@ -2,7 +2,7 @@ import json
 
 import folium
 import streamlit as st
-from config.field_config import FILTERABLE_FIELDS, field_options
+from config.field_config import CHAR_TO_LANGUAGES, FILTERABLE_FIELDS, field_options
 from folium import DivIcon
 from streamlit_folium import st_folium
 
@@ -47,9 +47,55 @@ data = load_data()
 display_config = data.get("_display_options", {}).get("prepend_country_name", {})
 data = {k: v for k, v in data.items() if not k.startswith("_")}
 
-# 表示観点（サイドバー）
-selected_view = st.sidebar.radio("Display Field", list(field_options.keys()))
+# ▼ 表示観点（サイドバー）
+st.sidebar.write("### 🎯 Display Field")
+selected_view = st.sidebar.radio(
+    "", list(field_options.keys()), label_visibility="collapsed"
+)
 icon_key, label_key = field_options[selected_view]
+
+# ▼ 特徴文字によるフィルター設定
+import unicodedata
+
+
+def sort_characters_by_base(char_list: list[str]) -> list[str]:
+    def base_form(char: str) -> str:
+        return (
+            unicodedata.normalize("NFKD", char)
+            .encode("ASCII", "ignore")
+            .decode("ASCII")
+            .lower()
+        )
+
+    return sorted(char_list, key=base_form)
+
+
+st.sidebar.write("### 🔤 Character-based Language Filter")
+char_states = {}
+char_cols = st.sidebar.columns(5)
+for idx, char in enumerate(sort_characters_by_base(CHAR_TO_LANGUAGES)):
+    with char_cols[idx % 5]:
+        char_states[char] = st.checkbox(char, key=f"char_{char}")
+
+selected_chars = [c for c, v in char_states.items() if v]
+
+
+def get_and_matching_languages(
+    selected_chars: list[str], char_to_lang: dict
+) -> set[str]:
+    if not selected_chars:
+        return set()
+    lang_sets = [set(char_to_lang.get(c, [])) for c in selected_chars]
+    return set.intersection(*lang_sets)
+
+
+matching_langs = get_and_matching_languages(selected_chars, CHAR_TO_LANGUAGES)
+
+
+def matches_selected_language(info: dict, matching_langs: set[str]) -> bool:
+    langs = info.get("language", [])
+    return any(lang in matching_langs for lang in langs)
+
 
 # フィルターの状態
 if "filters" not in st.session_state:
@@ -66,7 +112,7 @@ with st.expander("Filters", expanded=True):
         cols = st.columns([2, 2, 4, 1])
         with cols[0]:
             f["field"] = st.selectbox(
-                "Field", FILTERABLE_FIELDS.keys(), key=f"field_{i}"
+                "Field", sorted(FILTERABLE_FIELDS.keys()), key=f"field_{i}"
             )
         with cols[1]:
             f["match"] = st.selectbox("Match", ["contains", "equals"], key=f"match_{i}")
@@ -111,6 +157,8 @@ def should_display_label(label_key: str) -> bool:
 m = folium.Map(location=[0, 0], zoom_start=2)
 
 for country, info in data.items():
+    if selected_chars and not matches_selected_language(info, matching_langs):
+        continue
     if not passes_all_filters(info, st.session_state.filters):
         continue
 
