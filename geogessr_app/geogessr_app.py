@@ -6,7 +6,12 @@ import streamlit as st
 import yaml
 from config.char_config import CHAR_TO_LANGUAGES
 from config.data_processor import DataProcessor
-from config.field_config import DISPLAY_OPTIONS, FILTERABLE_FIELDS, field_options
+from config.field_config import (
+    DISPLAY_OPTIONS,
+    FILTERABLE_FIELDS,
+    field_options,
+    icon_options,
+)
 from config.street_config import LANGUAGE_STREET_TERMS
 from folium import DivIcon
 from streamlit_folium import st_folium
@@ -152,15 +157,8 @@ def get_legend_info(field_path: str, percentiles: dict) -> list:
     ]
 
 
-def get_display_label(
-    country: str, info: dict, field_path: str, display_config: dict
-) -> str:
-    """汎用的な表示ラベル取得関数"""
-    if field_path == "#country":
-        return country
-    if field_path == "#notext":
-        return ""
-
+def get_display_content(country: str, info: dict, field_path: str) -> str:
+    """表示用コンテンツを取得"""
     # DataProcessorを使用して動的/静的フィールドを統一的に処理
     value = DataProcessor.process_field(field_path, info)
 
@@ -171,9 +169,54 @@ def get_display_label(
     else:
         formatted_value = value
 
-    if display_config.get(field_path, False):
-        return f"{country}: {formatted_value}"
     return formatted_value
+
+
+def create_display_html(
+    country: str,
+    info: dict,
+    content_field: str,
+    show_flag: bool,
+    show_country_name: bool,
+    bg_color: str = "white",
+) -> str:
+    """表示用HTMLを生成"""
+    content = get_display_content(country, info, content_field)
+
+    # フラグアイコンの準備
+    flag_html = ""
+    if show_flag:
+        flag_url = info.get("flag", {}).get("image_url", "")
+        if flag_url:
+            flag_html = f'<img src="{flag_url}" style="width: 40px; height: auto; display: block; margin: 0 auto;" />'
+
+    # 国名プレフィックスの準備
+    prefix_text = ""
+    if show_country_name:
+        prefix_text = f"{country}: "
+
+    # 最終的な表示テキスト
+    display_text = f"{prefix_text}{content}" if content else ""
+
+    if flag_html:
+        # フラグアイコン付きの場合
+        html = f"""
+        <div style="text-align: center; font-size: 10px;">
+            {flag_html}
+            {f'<div style="display: inline-block; background: {bg_color}; padding: 1px 4px; border-radius: 4px; max-width: 200px; word-wrap: break-word; border: 1px solid #666; color: #000;">{display_text}</div>' if display_text else ""}
+        </div>
+        """
+    else:
+        # テキストのみの場合
+        html = f"""
+        <div style="text-align: center; font-size: 10px;">
+            <div style="display: inline-block; background: {bg_color}; padding: 2px 6px; border-radius: 4px; max-width: 200px; word-wrap: break-word; line-height: 1.2; border: 1px solid #666; color: #000;">
+                {display_text}
+            </div>
+        </div>
+        """
+
+    return html
 
 
 display_config = DISPLAY_OPTIONS.get("prepend_country_name", {})
@@ -181,27 +224,33 @@ data = load_data()
 
 # ▼ 表示観点（サイドバー）
 st.sidebar.write("### 🎯 Display Field")
-selected_view = st.sidebar.radio(
-    "Display Field",
+selected_field = st.sidebar.selectbox(
+    "Content Field",
     list(field_options.keys()),
-    index=list(field_options.keys()).index("Flag (image only)"),
-    label_visibility="collapsed",
+    index=0,
 )
-icon_key, label_key = field_options[selected_view]
+content_field = field_options[selected_field]
+
+st.sidebar.write("### 🖼️ Display Options")
+show_flag = st.sidebar.checkbox("Show Flag Icon", value=True)
+show_country_name = st.sidebar.checkbox("Show Country Name", value=True)
 
 # ▼ 数値フィールドの分布計算と凡例表示
 numeric_percentiles = None
-if label_key in FILTERABLE_FIELDS and FILTERABLE_FIELDS[label_key][0] == "number":
-    numeric_percentiles = calculate_numeric_percentiles(data, label_key)
+if (
+    content_field in FILTERABLE_FIELDS
+    and FILTERABLE_FIELDS[content_field][0] == "number"
+):
+    numeric_percentiles = calculate_numeric_percentiles(data, content_field)
 
     if numeric_percentiles:
         st.markdown("### 🎨 Color Legend (Based on Data Distribution)")
-        legend_items = get_legend_info(label_key, numeric_percentiles)
+        legend_items = get_legend_info(content_field, numeric_percentiles)
 
         # 統計情報も表示
         stats_col1, stats_col2 = st.columns(2)
         with stats_col1:
-            st.markdown(f"**Field:** {FILTERABLE_FIELDS[label_key][1]}")
+            st.markdown(f"**Field:** {FILTERABLE_FIELDS[content_field][1]}")
             st.markdown(
                 f"**Total countries with data:** {len(numeric_percentiles['values'])}"
             )
@@ -289,9 +338,9 @@ if "filter_counter" not in st.session_state:
 # メイン領域にフィルター表示
 with st.expander("Filters", expanded=True):
     if st.button("+ Add Filter"):
-        # 現在選択されているDisplay Fieldを正確に判定
-        if label_key in FILTERABLE_FIELDS:
-            default_field = label_key
+        # 現在選択されているContent Fieldを正確に判定
+        if content_field in FILTERABLE_FIELDS:
+            default_field = content_field
         else:
             # フィルター不可能な場合はlanguageをデフォルトに
             default_field = "language"
@@ -359,7 +408,7 @@ if selected_chars:
     st.markdown(f"**Matching languages:** {', '.join(unique_langs)}")
 
     # 街路表記モードの場合は対応する街路表記をテーブル形式で表示
-    if label_key == "#dynamic_street_terms" and unique_langs:
+    if content_field == "#dynamic_street_terms" and unique_langs:
         st.markdown("#### 🛣️ Street Terms for Selected Languages")
 
         # テーブル形式で見やすく表示
@@ -392,61 +441,34 @@ for country, info in data.items():
     if not passes_all_filters(info, st.session_state.filters):
         continue
 
-    icon_url = (
-        DataProcessor.process_field(icon_key, info) if icon_key != "#noimage" else None
-    )
-    label = get_display_label(country, info, label_key, display_config)
+    content = get_display_content(country, info, content_field)
 
-    # 有効な値がない場合（国名のみ、空文字、None、"No ... available"など）はスキップ
-    # ただし、Flag (image only) モードの場合は国名表示でもOK
-    def has_valid_content(label_text, country_name, field_key):
-        # Flag (image only) モードの場合は国名でもOK
-        if field_key == "#country":
-            return True
-
-        if not label_text or label_text.strip() == "":
-            return False
-        if label_text == country_name:  # 国名のみの場合
+    # 有効な値がない場合（空文字、None、"No ... available"など）はスキップ
+    def has_valid_content(content_text, field_key):
+        if not content_text or content_text.strip() == "":
             return False
         if (
-            label_text.startswith(country_name + ":")
-            and label_text.replace(country_name + ":", "").strip() == ""
-        ):
-            return False  # "国名: " の後に何もない場合
-        if (
-            "No " in label_text and "available" in label_text
+            "No " in content_text and "available" in content_text
         ):  # "No street terms available"など
             return False
         return True
 
-    if not has_valid_content(label, country, label_key):
+    if not has_valid_content(content, content_field):
         continue
 
     # ここまで来た場合のみカウント
     filtered_count += 1
 
     # 数値フィールドの場合は背景色を取得
-    raw_value = DataProcessor.process_field(label_key, info)
+    raw_value = DataProcessor.process_field(content_field, info)
     bg_color = get_background_color_for_numeric_field(
-        label_key, raw_value, numeric_percentiles
+        content_field, raw_value, numeric_percentiles
     )
 
-    if icon_url:
-        html = f"""
-        <div style="text-align: center; font-size: 10px;">
-            <img src="{icon_url}" style="width: 40px; height: auto; display: block; margin: 0 auto;" />
-            {f'<div style="display: inline-block; background: {bg_color}; padding: 1px 4px; border-radius: 4px; max-width: 200px; word-wrap: break-word; border: 1px solid #666; color: #000;">{label}</div>' if label else ""}
-        </div>
-        """
-    else:
-        html = f"""
-        <div style="text-align: center; font-size: 10px;">
-            <div style="display: inline-block; background: {bg_color}; padding: 2px 6px; border-radius: 4px; max-width: 200px; word-wrap: break-word; line-height: 1.2; border: 1px solid #666; color: #000;">
-                {label}
-            </div>
-        </div>
-        """
-
+    # 表示用HTMLを生成
+    html = create_display_html(
+        country, info, content_field, show_flag, show_country_name, bg_color
+    )
     div_icon = DivIcon(icon_size=(40, 40), icon_anchor=(20, 20), html=html)
 
     # 詳細なポップアップ（全データを動的に表示）

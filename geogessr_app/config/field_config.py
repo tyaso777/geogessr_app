@@ -1,20 +1,24 @@
 # config/field_config.py
 
-# 表示用の観点（画像 + ラベル）
+# 表示用のフィールド（コンテンツのみ）
 field_options = {
-    "Flag (image only)": ("flag.image_url", "#country"),
-    "Flag": ("flag.image_url", "flag.description"),
-    "Language (text only)": ("#noimage", "language"),
-    "Street Terms (text only)": ("#noimage", "#dynamic_street_terms"),
-    "Top-level Domain (text only)": ("#noimage", "tld"),
-    "GDP per capita (text only)": ("#noimage", "gdp_per_capita"),
-    "Number Plate (text only)": ("#noimage", "number_plate"),
-    "Crosswalk Stripes (text only)": ("#noimage", "crosswalk_stripes"),
-    "Crosswalk Features (text only)": ("#noimage", "crosswalk_features"),
-    "Sign Back (text only)": ("#noimage", "sign_back"),
-    "Camera (text only)": ("#noimage", "camera"),
+    "Top-level Domain": "tld",
+    "Number Plate": "number_plate",
+    "Language": "language",
+    "Street Terms": "#dynamic_street_terms",
+    "Crosswalk Stripes": "crosswalk_stripes",
+    "Crosswalk Features": "crosswalk_features",
+    "Sign Back": "sign_back",
+    "Camera": "camera",
+    "GDP per capita": "gdp_per_capita",
+    "Flag Description": "flag.description",
 }
 
+# アイコン/プレフィックスのオプション（チェックボックス用）
+icon_options = {
+    "show_flag": "Show Flag Icon",
+    "show_country_name": "Show Country Name",
+}
 
 # フィルター対象の定義（型・説明）
 FILTERABLE_FIELDS = {
