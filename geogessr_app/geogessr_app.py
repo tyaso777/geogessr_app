@@ -4,13 +4,9 @@ import folium
 import numpy as np
 import streamlit as st
 import yaml
+from config.char_config import CHAR_TO_LANGUAGES
 from config.data_processor import DataProcessor
-from config.field_config import (
-    CHAR_TO_LANGUAGES,
-    DISPLAY_OPTIONS,
-    FILTERABLE_FIELDS,
-    field_options,
-)
+from config.field_config import DISPLAY_OPTIONS, FILTERABLE_FIELDS, field_options
 from config.street_config import LANGUAGE_STREET_TERMS
 from folium import DivIcon
 from streamlit_folium import st_folium
@@ -287,29 +283,55 @@ def matches_selected_language(info: dict, matching_langs: set[str]) -> bool:
 # フィルターの状態
 if "filters" not in st.session_state:
     st.session_state.filters = []
+if "filter_counter" not in st.session_state:
+    st.session_state.filter_counter = 0
 
 # メイン領域にフィルター表示
 with st.expander("Filters", expanded=True):
     if st.button("+ Add Filter"):
+        # 現在選択されているDisplay Fieldを正確に判定
+        if label_key in FILTERABLE_FIELDS:
+            default_field = label_key
+        else:
+            # フィルター不可能な場合はlanguageをデフォルトに
+            default_field = "language"
+
+        st.session_state.filter_counter += 1
         st.session_state.filters.append(
-            {"field": "language", "match": "contains", "value": ""}
+            {
+                "field": default_field,
+                "match": "contains",
+                "value": "",
+                "id": st.session_state.filter_counter,
+            }
         )
 
     for i, f in enumerate(st.session_state.filters):
         cols = st.columns([2, 2, 4, 1])
         with cols[0]:
+            # フィルターIDを使ってユニークなkeyを生成
+            filter_id = f.get("id", i)
             f["field"] = st.selectbox(
-                "Field", sorted(FILTERABLE_FIELDS.keys()), key=f"field_{i}"
+                "Field",
+                sorted(FILTERABLE_FIELDS.keys()),
+                index=(
+                    sorted(FILTERABLE_FIELDS.keys()).index(f["field"])
+                    if f["field"] in FILTERABLE_FIELDS
+                    else 0
+                ),
+                key=f"field_{filter_id}",
             )
         with cols[1]:
-            f["match"] = st.selectbox("Match", ["contains", "equals"], key=f"match_{i}")
+            f["match"] = st.selectbox(
+                "Match", ["contains", "equals"], key=f"match_{filter_id}"
+            )
         with cols[2]:
             help_text = FILTERABLE_FIELDS.get(f["field"], ("", ""))[1]
             f["value"] = st.text_input(
-                f"Value ({help_text})", key=f"value_{i}", value=f["value"]
+                f"Value ({help_text})", key=f"value_{filter_id}", value=f["value"]
             )
         with cols[3]:
-            if st.button("❌", key=f"remove_{i}"):
+            if st.button("❌", key=f"remove_{filter_id}"):
                 st.session_state.filters.pop(i)
                 st.rerun()
 
@@ -440,6 +462,7 @@ for country, info in data.items():
             "language": "Language",
             "tld": "Domain",
             "gdp_per_capita": "GDP per capita",
+            "number_plate": "Number Plate",
             "crosswalk_stripes": "Crosswalk Stripes",
             "crosswalk_features": "Crosswalk Features",
             "sign_back": "Sign Back",

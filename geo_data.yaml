@@ -38,6 +38,7 @@ Belgium:
   - 50.5039
   - 4.4699
   gdp_per_capita: 55841
+  number_plate: Front – White background with red characters; Rear – White background with red characters.
 France:
   flag:
     emoji: 🇫🇷
@@ -52,6 +53,7 @@ France:
   crosswalk_stripes: 5
   crosswalk_features: standard European pedestrian symbol
   gdp_per_capita: 45311
+  number_plate: Front – White background with blue bands on both ends; Rear – White background with blue bands on both ends.
 Germany:
   flag:
     emoji: 🇩🇪
@@ -108,6 +110,7 @@ Isle of Man:
   - 54.2361
   - -4.5481
   gdp_per_capita: 94300
+  number_plate: Front – White background with red band on left; Rear – Yellow background with red band on left.
 Italy:
   flag:
     emoji: 🇮🇹
@@ -122,6 +125,7 @@ Italy:
   crosswalk_stripes: 5
   crosswalk_features: standard European pedestrian symbol
   gdp_per_capita: 39589
+  number_plate: Front – White background with blue bands on both ends; Rear – White background with blue bands on both ends.
 San Marino:
   flag:
     emoji: 🇸🇲
@@ -153,6 +157,7 @@ Luxembourg:
   crosswalk_stripes: 5
   crosswalk_features: pedestrian symbol with white horizontal line (belt)
   gdp_per_capita: 132852
+  number_plate: Front – Yellow background (EU-style plate); Rear – Yellow background (EU-style plate).
 Malta:
   flag:
     emoji: 🇲🇹
@@ -198,6 +203,7 @@ Netherlands:
   crosswalk_stripes: 5
   crosswalk_features: standard European pedestrian symbol
   gdp_per_capita: 66275
+  number_plate: Front – Yellow background (EU-style plate); Rear – Yellow background (EU-style plate).
 Portugal:
   flag:
     emoji: 🇵🇹
@@ -214,6 +220,7 @@ Portugal:
   crosswalk_features: pedestrian symbol with white horizontal line (belt) positioned
     higher than other countries
   gdp_per_capita: 28350
+  number_plate: Front – White background with EU blue band on left and yellow band on right (old style); Rear – White background with EU blue band on left and yellow band on right (old style).
 Spain:
   flag:
     emoji: 🇪🇸
@@ -272,6 +279,7 @@ United Kingdom:
   - 55.3781
   - -3.436
   gdp_per_capita: 51212
+  number_plate: Front – White background with black characters; Rear – Yellow background with black characters.
 Albania:
   flag:
     emoji: 🇦🇱
@@ -672,6 +680,7 @@ Colombia:
   sign_back: cross-shaped back; mainly seen in Colombia, sometimes referred to as
     'Colombian cross'
   gdp_per_capita: 7316
+  number_plate: Front – Yellow background (long rectangular shape); Rear – Yellow background (long rectangular shape).
 Costa Rica:
   flag:
     emoji: 🇨🇷
@@ -889,6 +898,7 @@ Bhutan:
   - 27.5
   - 90.5
   gdp_per_capita: 3951
+  number_plate: Front – Red background with white characters; Rear – Red background with white characters.
 Cambodia:
   flag:
     emoji: 🇰🇭
@@ -941,6 +951,7 @@ Indonesia:
   - 0.0
   - 120.0
   gdp_per_capita: 4926
+  number_plate: Front – Black background with white characters; Rear – Black background with white characters.
 Laos:
   flag:
     emoji: 🇱🇦
@@ -968,6 +979,7 @@ Malaysia:
   - 2.5
   - 112.5
   gdp_per_capita: 12393
+  number_plate: Front – Black background with white characters; Rear – Black background with white characters.
 Pakistan:
   flag:
     emoji: 🇵🇰
@@ -1313,6 +1325,7 @@ Kenya:
   - 1.0
   - 38.0
   gdp_per_capita: 2124
+  number_plate: Front – White background with black characters; Rear – Yellow background with black characters (vertically longer than UK).
 Lesotho:
   flag:
     emoji: 🇱🇸
@@ -1394,6 +1407,7 @@ Senegal:
   - 14.0
   - -14.0
   gdp_per_capita: 1733
+  number_plate: Front – Blue background with white characters; Rear – Blue background with white characters.
 South Africa:
   flag:
     emoji: 🇿🇦
@@ -1445,6 +1459,7 @@ Israel:
   - 31.5
   - 34.75
   gdp_per_capita: 55297
+  number_plate: Front – Yellow background with blue band on left; Rear – Yellow background with blue band on left.
 Jordan:
   flag:
     emoji: 🇯🇴
@@ -1497,6 +1512,7 @@ Tunisia:
   - 34.0
   - 9.0
   gdp_per_capita: 4162
+  number_plate: Front – Black background with white characters; Rear – Black background with white characters.
 Turkey:
   flag:
     emoji: 🇹🇷
