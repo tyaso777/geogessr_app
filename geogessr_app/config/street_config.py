@@ -183,6 +183,10 @@ LANGUAGE_STREET_TERMS = {
         "street": ["Gata", "Väg", "Torg", "Gränd", "Allé"],
         "abbreviations": ["g.", "väg", "torg", "gr.", "allé"],
     },
+    "Tamil": {
+        "street": ["தெரு", "சாலை", "வீதிகள்", "பாதை"],
+        "abbreviations": ["தெ.", "சா.", "வீ.", "பா."],
+    },
     "Thai": {
         "street": ["ถนน", "ซอย", "ตรอก", "ย่าน"],
         "abbreviations": ["ถ.", "ซ.", "ตรอก", "ย่าน"],
