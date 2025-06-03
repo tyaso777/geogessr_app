@@ -450,6 +450,19 @@ Faroe Islands:
     emoji: 🇫🇴
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/fo.svg
   gdp_per_capita: 71718
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- グーグルカーのサイドミラー＋ルーフレールが見える。"
+      - type: "text"
+        content: "- 草に覆われた山・草原。丘や沿岸部が多い。"
+    long:
+      - type: "text"
+        content: "グーグルカーのサイドミラー＋ルーフレールが見える。"
+      - type: "text"
+        content: "急斜面に張りついたような集落が多く、家は壁面や屋根がパステルカラーの木造。"
+      - type: "text"
+        content: "木がほとんど生えておらず、草に覆われた山と曇天の組み合わせが非常に多い。"
   language:
   - Faroese
   - Danish
@@ -466,6 +479,25 @@ Finland:
     emoji: 🇫🇮
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/fi.svg
   gdp_per_capita: 53284
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- 道路標識は青背景に白文字が多い。矢印先端塗りつぶし（cf.Sweden）"
+      - type: "image"
+        path: "data:image/svg+xml,<svg viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 0,26 100,26 100,0' fill='white' stroke='black' stroke-width='0.5'/><polygon points='0,0 20,0 0,13' fill='%234A90E2'/><polygon points='0,13 0,26 20,26' fill='%234A90E2'/><polygon points='20,2 20,24 97,24 97,2' fill='%234A90E2'/></svg>"
+      - type: "text"
+        content: "- -tie, -katu の地名"
+      - type: "text"
+        content: "- 北欧3か国で唯一横断歩道の白線が5本(他は4本)"
+    long:
+      - type: "text"
+        content: "道路標識は青背景に白文字が多く、矢印の先端は塗りつぶされている（スウェーデンと異なる）。"
+      - type: "image"
+        path: "data:image/svg+xml,<svg viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 0,26 100,26 100,0' fill='white' stroke='black' stroke-width='0.5'/><polygon points='0,0 20,0 0,13' fill='%234A90E2'/><polygon points='0,13 0,26 20,26' fill='%234A90E2'/><polygon points='20,2 20,24 97,24 97,2' fill='%234A90E2'/></svg>"
+      - type: "text"
+        content: "道路名や通り名に -tie（道）, -katu（通り）がよく使われており、フィンランド語由来の地名が多い。"
+      - type: "text"
+        content: "北欧3か国で唯一横断歩道の白線が5本(他は4本)"
   language:
   - Finnish
   - Swedish
@@ -551,6 +583,13 @@ Greenland:
     emoji: 🇬🇱
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/gl.svg
   gdp_per_capita: 55745
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- 草・岩地にカラフルな家。"
+    long:
+      - type: "text"
+        content: "草・岩山に直接建てられたような家（赤・緑・青などの木造建築）"
   language:
   - Greenlandic
   - Danish
@@ -623,6 +662,24 @@ Iceland:
     emoji: 🇮🇸
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/is.svg
   gdp_per_capita: 83583
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- ほぼ木がない草原"
+      - type: "text"
+        content: "- Þやðなど独特な文字"
+      - type: "text"
+        content: "- 黄色いボラード"
+      - type: "image"
+        path: "data:image/svg+xml,<svg width='30' height='90' xmlns='http://www.w3.org/2000/svg'><g transform='rotate(5,15,45)'><rect x='13' y='10' width='4' height='65' fill='%23f4b400'/><rect x='13' y='10' width='4' height='4' fill='%23cccccc'/><rect x='13' y='15' width='4' height='4' fill='%23cccccc'/></g></svg>"
+    long:
+      - type: "text"
+        content: "ほぼ木がない草原"
+      - type: "text"
+        content: "Þやðなど独特な文字"
+      - type: "image"
+        path: "data:image/svg+xml,<svg width='30' height='90' xmlns='http://www.w3.org/2000/svg'><g transform='rotate(5,15,45)'><rect x='13' y='10' width='4' height='65' fill='%23f4b400'/><rect x='13' y='10' width='4' height='4' fill='%23cccccc'/><rect x='13' y='15' width='4' height='4' fill='%23cccccc'/></g></svg>"
+        caption: "黄色いボラード"
   language:
   - Icelandic
   latlng:
@@ -680,6 +737,17 @@ Ireland:
     emoji: 🇮🇪
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/ie.svg
   gdp_per_capita: 106305
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- EUナンバープレート＋左側通行"
+      - type: "text"
+        content: "- 道路番号(Nxx, Rxx)。2言語標識（英語＋アイルランド語）"
+    long:
+      - type: "text"
+        content: "アイルランドは左側通行だが、EUナンバープレートや2言語標識がイギリスとの識別ポイント。"
+      - type: "text"
+        content: "標識や地名には英語とアイルランド語（Gaeilge）が併記されている。例：Dublin / Baile Átha Cliath"
   language:
   - Irish
   - English
@@ -760,13 +828,13 @@ Italy:
   geoguessr_tips:
     short:
       - type: "text"
-        content: "白地に青いEUバンド(=アルバニア・フランス)"
+        content: "- 白地+両端青(=アルバニア・フランス)"
       - type: "image"
         path: "data:image/svg+xml,<svg width='80' height='40' xmlns='http://www.w3.org/2000/svg'><rect x='1' y='1' width='78' height='38' fill='white' stroke='black' stroke-width='1' rx='3'/><rect x='1' y='1' width='8' height='38' fill='blue'/><rect x='71' y='1' width='8' height='38' fill='blue'/><text x='40' y='25' text-anchor='middle' fill='black' font-family='Arial' font-size='8' font-weight='bold'>IT</text></svg>"
+      - type: "text"
+        content: "- 黒背景＋赤リフレクター(=アルバニア)"
       - type: "image"
         path: "data:image/svg+xml,<svg width='30' height='80' xmlns='http://www.w3.org/2000/svg'><g transform='rotate(5,15,40)'><rect x='12' y='10' width='6' height='60' fill='white' stroke='black' stroke-width='1'/><rect x='12' y='10' width='6' height='20' fill='black'/><rect x='13' y='14' width='4' height='12' fill='red'/></g></svg>"
-      - type: "text"
-        content: "上方に黒背景＋赤リフレクター(=アルバニア)"
     long:
       - type: "text"
         content: "白地に青いEUバンドのナンバープレート（両端）"
@@ -774,10 +842,9 @@ Italy:
         path: "data:image/svg+xml,<svg width='200' height='100' xmlns='http://www.w3.org/2000/svg'><rect x='2' y='2' width='196' height='96' fill='white' stroke='black' stroke-width='2' rx='6'/><rect x='2' y='2' width='20' height='96' fill='blue'/><rect x='178' y='2' width='20' height='96' fill='blue'/><text x='100' y='55' text-anchor='middle' fill='black' font-family='Arial' font-size='16' font-weight='bold'>IT 123 AB</text></svg>"
         caption: "イタリアのナンバープレート（アルバニア・フランスにも共通）"
       - type: "text"
-        content: "ボラードは上部が黒く、赤い反射板が付いており、アルバニアでも見られる"
+        content: "ボラードは上部が黒く、赤い反射板が付いている。アルバニアでも見られる"
       - type: "image"
         path: "data:image/svg+xml,<svg width='30' height='80' xmlns='http://www.w3.org/2000/svg'><g transform='rotate(5,15,40)'><rect x='12' y='10' width='6' height='60' fill='white' stroke='black' stroke-width='1'/><rect x='12' y='10' width='6' height='20' fill='black'/><rect x='13' y='14' width='4' height='12' fill='red'/></g></svg>"
-        caption: "赤い反射板付きの斜めボラード（上部が黒）"
 
   language:
   - Italian
@@ -1200,6 +1267,19 @@ Norway:
     emoji: 🇳🇴
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/no.svg
   gdp_per_capita: 88517
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- 白のサイドラインが長い破線（Swedenは短い破線）。"
+      - type: "text"
+        content: "- 黄色地に黒文字の地名看板（Sweden、Finlandは基本青い）。"
+      - type: "text"
+        content: "- 北欧3か国で警告看板が唯一赤白（他は赤黄色）。"
+    long:
+      - type: "text"
+        content: "- 白のサイドラインが長い破線（Swedenは短い破線）。"
+      - type: "text"
+        content: "黄色地に黒文字の地名看板（Sweden、Finlandは基本青い）。"
   language:
   - Norwegian (Bokmål, Nynorsk)
   latlng:
@@ -1578,6 +1658,21 @@ Sweden:
     emoji: 🇸🇪
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/se.svg
   gdp_per_capita: 56352
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- 白で細かい破線のサイドライン（ノルウェーは長い）。"
+      - type: "text"
+        content: "- 方向標識は矢印先端が塗りつぶし無い。青地に白か白地に黒。"
+      - type: "image"
+        path: "data:image/svg+xml,<svg viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 0,26 100,26 100,0' fill='white' stroke='black' stroke-width='0.5'/><polygon points='0,0 20,0 0,13' fill='%234A90E2'/><polygon points='0,13 0,26 20,26' fill='%234A90E2'/><polygon points='10,13 20,3 20,23' fill='%234A90E2'/><polygon points='20,3 20,23 97,23 97,3' fill='%234A90E2'/></svg>"
+    long:
+      - type: "text"
+        content: "センターラインは白くて細かい破線、サイドラインも白でやや細め。ノルウェーと比べるとセンターの破線が短い。"
+      - type: "text"
+        content: "方向標識は青地に白文字で、矢印先端が塗りつぶし無し。白地に黒のパターンもある。"
+      - type: "image"
+        path: "data:image/svg+xml,<svg viewBox='0 0 120 30' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 0,26 100,26 100,0' fill='white' stroke='black' stroke-width='0.5'/><polygon points='0,0 20,0 0,13' fill='%234A90E2'/><polygon points='0,13 0,26 20,26' fill='%234A90E2'/><polygon points='10,13 20,3 20,23' fill='%234A90E2'/><polygon points='20,3 20,23 97,23 97,3' fill='%234A90E2'/></svg>"
   language:
   - Swedish
   latlng:
@@ -1759,6 +1854,21 @@ United Kingdom:
     emoji: 🇬🇧
     image_url: https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/flags/4x3/gb.svg
   gdp_per_capita: 51212
+  geoguessr_tips:
+    short:
+      - type: "text"
+        content: "- 左側通行。ナンバープレート：前が白・後ろが黄。"
+      - type: "text"
+        content: "- 道路番号：Axx, Mxx。"
+    long:
+      - type: "text"
+        content: "左側通行で、道路標識や車線の形式もその前提で設計されている。"
+      - type: "text"
+        content: "車のナンバープレートは前が白、後ろが黄色。"
+      - type: "text"
+        content: "道路番号はA55のように A・Mから始まるのが特徴。Aが主幹道、Mが高速道路らしい。"
+      - type: "text"
+        content: "緑地に黄文字（主幹道）や白地に青文字（高速）の標識が出ることが多いらしい。"
   language:
   - English
   latlng:
