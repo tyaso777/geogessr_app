@@ -11,6 +11,23 @@ Albania:
   latlng:
   - 41.1533
   - 20.1683
+  number_plate: Front – White background with blue bands on both ends; Rear – White
+    background with blue bands on both ends.
+  number_plate_config:
+    front:
+      bg_color: white
+      border_color: black
+      left_band_color: blue
+      right_band_color: blue
+      text_color: black
+      top_band_color: null
+    rear:
+      bg_color: white
+      border_color: black
+      left_band_color: blue
+      right_band_color: blue
+      text_color: black
+      top_band_color: null
   tld: .al
 American Samoa:
   flag:
