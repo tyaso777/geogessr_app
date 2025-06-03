@@ -28,6 +28,11 @@ class DataProcessor:
             # ナンバープレート画像が利用可能かチェック
             return "Available" if country_info.get("number_plate_config") else None
 
+        elif field_path == "#geoguessr_tips":
+            # GeoGuessrのTipsが利用可能かチェック（short版またはlong版）
+            tips = country_info.get("geoguessr_tips", {})
+            return "Available" if (tips.get("short") or tips.get("long")) else None
+
         # 他の動的フィールドもここで処理可能
         # elif field_path == "#dynamic_currency":
         #     return DataProcessor._get_currency_info(country_info)
@@ -47,6 +52,11 @@ class DataProcessor:
 
         if field_path == "#number_plate_visual":
             return DataProcessor._create_number_plate_html(
+                country, info, show_flag, show_country_name, bg_color
+            )
+
+        elif field_path == "#geoguessr_tips":
+            return DataProcessor._create_tips_html(
                 country, info, show_flag, show_country_name, bg_color
             )
 
@@ -92,10 +102,76 @@ class DataProcessor:
         return html
 
     @staticmethod
+    def _create_tips_html(
+        country: str,
+        info: dict,
+        show_flag: bool,
+        show_country_name: bool,
+        bg_color: str,
+    ) -> str:
+        """GeoGuessrのTips表示用HTMLを生成"""
+        tips_data = info.get("geoguessr_tips", {})
+        tips = tips_data.get("short", [])
+        if not tips:
+            return None
+
+        # フラグと国名の表示
+        flag_html = ""
+        if show_flag:
+            flag_url = info.get("flag", {}).get("image_url", "")
+            if flag_url:
+                flag_html = f'<img src="{flag_url}" style="width: 25px; height: auto; display: block; margin: 0 auto 3px auto;" />'
+
+        country_text = ""
+        if show_country_name:
+            country_text = f'<div style="font-size: 9px; margin-bottom: 3px; color: #000; font-weight: bold;">{country}</div>'
+
+        # Tips内容を動的に構築（コンパクト版）
+        tips_content = ""
+        for i, tip in enumerate(tips):
+            if tip.get("type") == "text":
+                # テキストを短縮して表示
+                text = tip["content"]
+                if len(text) > 25:  # 25文字以上は省略
+                    text = text[:22] + "..."
+                tips_content += f'<div style="margin: 2px 0; font-size: 8px; line-height: 1.2; color: #333;">{text}</div>'
+            elif tip.get("type") == "image":
+                image_path = tip.get("path", "")
+                caption = tip.get("caption", "")
+
+                # 画像パスの処理
+                if image_path.startswith("data:"):
+                    image_src = image_path
+                elif image_path.startswith("http"):
+                    image_src = image_path
+                else:
+                    image_src = f"assets/tips/{image_path}"
+
+                # 画像サイズを大幅に縮小
+                tips_content += f"""
+                <div style="margin: 3px 0; text-align: center;">
+                    <img src="{image_src}" style="width: 30%; max-width: 30px; height: auto; display: block; margin: 0 auto;" />
+                    {f'<div style="font-size: 7px; text-align: center; color: #666; margin-top: 1px; line-height: 1.1;">{caption[:20]}{"..." if len(caption) > 20 else ""}</div>' if caption else ""}
+                </div>
+                """
+
+        html = f"""
+        <div style="text-align: center; font-size: 10px; background: {bg_color}; padding: 4px; border-radius: 4px; border: 1px solid #666; max-width: 120px;">
+            {flag_html}
+            {country_text}
+            <div style="text-align: left; max-width: 110px;">
+                {tips_content}
+            </div>
+        </div>
+        """
+        return html
+
+    @staticmethod
     def is_special_field(field_path: str) -> bool:
         """特別な表示処理が必要なフィールドかどうか"""
         special_fields = {
             "#number_plate_visual",
+            "#geoguessr_tips",
             # 他の特別フィールドもここに追加
         }
         return field_path in special_fields

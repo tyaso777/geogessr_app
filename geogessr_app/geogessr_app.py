@@ -158,6 +158,45 @@ def get_legend_info(field_path: str, percentiles: dict) -> list:
     ]
 
 
+def format_tips_for_popup(tips: list) -> str:
+    """Tipsをポップアップ用に整理してフォーマット"""
+    tip_items = []
+
+    for tip in tips:
+        if isinstance(tip, dict):  # 辞書の場合の処理
+            if tip.get("type") == "text":
+                # テキストTips
+                content = tip.get("content", "")
+                tip_items.append(f"• {content}")
+            elif tip.get("type") == "image":
+                # 画像Tips
+                caption = tip.get("caption", "")
+                image_path = tip.get("path", "")
+
+                # 画像パスの処理
+                if image_path.startswith("data:"):
+                    image_src = image_path
+                elif image_path.startswith("http"):
+                    image_src = image_path
+                else:
+                    image_src = f"assets/tips/{image_path}"
+
+                # 画像とキャプションを組み合わせ
+                if caption:
+                    tip_items.append(
+                        f'<div style="margin: 5px 0;"><img src="{image_src}" style="max-width: 120px; height: auto; display: block;"><small>{caption}</small></div>'
+                    )
+                else:
+                    tip_items.append(
+                        f'<div style="margin: 5px 0;"><img src="{image_src}" style="max-width: 120px; height: auto; display: block;"></div>'
+                    )
+        else:
+            # 文字列の場合はそのまま表示
+            tip_items.append(f"• {str(tip)}")
+
+    return "<br>".join(tip_items)
+
+
 def get_display_content(country: str, info: dict, field_path: str) -> str:
     """表示用コンテンツを取得"""
     # 国名情報をinfoに追加（DataProcessorで使用）
@@ -220,14 +259,14 @@ def create_display_html(
         html = f"""
         <div style="text-align: center; font-size: 10px;">
             {flag_html}
-            {f'<div style="display: inline-block; background: {bg_color}; padding: 1px 4px; border-radius: 4px; max-width: 200px; word-wrap: break-word; border: 1px solid #666; color: #000;">{display_text}</div>' if display_text else ""}
+            {f'<div style="display: inline-block; background: {bg_color}; padding: 1px 4px; border-radius: 4px; max-width: 1000px; word-wrap: break-word; border: 1px solid #666; color: #000;">{display_text}</div>' if display_text else ""}
         </div>
         """
     else:
         # テキストのみの場合
         html = f"""
         <div style="text-align: center; font-size: 10px;">
-            <div style="display: inline-block; background: {bg_color}; padding: 2px 6px; border-radius: 4px; max-width: 200px; word-wrap: break-word; line-height: 1.2; border: 1px solid #666; color: #000;">
+            <div style="display: inline-block; background: {bg_color}; padding: 2px 6px; border-radius: 4px; max-width: 1000px; word-wrap: break-word; line-height: 1.2; border: 1px solid #666; color: #000;">
                 {display_text}
             </div>
         </div>
@@ -477,6 +516,10 @@ for country, info in data.items():
         if DataProcessor.is_special_field(field_key):
             if field_key == "#number_plate_visual":
                 return has_number_plate_config(info)
+            elif field_key == "#geoguessr_tips":
+                tips_data = info.get("geoguessr_tips", {})
+                tips = tips_data.get("short", []) or tips_data.get("long", [])
+                return bool(tips_data.get("short") or tips_data.get("long"))
             # 他の特別フィールドもここで処理
             return False
 
@@ -504,7 +547,8 @@ for country, info in data.items():
     html = create_display_html(
         country, info, content_field, show_flag, show_country_name, bg_color
     )
-    div_icon = DivIcon(icon_size=(40, 40), icon_anchor=(20, 20), html=html)
+    # アイコンサイズを大きくする
+    div_icon = DivIcon(icon_size=(200, 40), icon_anchor=(100, 20), html=html)
 
     # 詳細なポップアップ（全データを動的に表示）
     def format_data_for_popup(country_name: str, info: dict) -> str:
@@ -530,6 +574,13 @@ for country, info in data.items():
         street_terms = DataProcessor.process_field("#dynamic_street_terms", info)
         if street_terms and street_terms != "No street terms available":
             sections.append(f"<b>Street Terms:</b> {street_terms}")
+
+        # GeoGuessrのTipsを整理して表示（long版を使用）
+        tips_data = info.get("geoguessr_tips", {})
+        tips = tips_data.get("long", [])  # long版を使用
+        if tips:
+            tips_html = format_tips_for_popup(tips)
+            sections.append(f"<b>GeoGuessr Tips:</b><br>{tips_html}")
 
         # 通常のフィールドを動的に処理
         for key, value in info.items():

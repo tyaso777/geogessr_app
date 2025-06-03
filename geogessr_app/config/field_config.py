@@ -3,6 +3,7 @@
 # 表示用のフィールド（コンテンツのみ）
 field_options = {
     "Top-level Domain": "tld",
+    "GeoGuessr Tips": "#geoguessr_tips",
     "Number Plate (Visual; Front, Rear)": "#number_plate_visual",
     "Language": "language",
     "Street Terms": "#dynamic_street_terms",
